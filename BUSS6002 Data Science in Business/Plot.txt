@@ -1,0 +1,18 @@
+Plot 美化教程
+https://blog.csdn.net/weixin_41685388/article/details/109178092
+
+Question 3 b
+
+普通的heatmap
+plt.matshow(df_corr)
+plt.show()
+
+复杂heatmap
+f = plt.figure(figsize=(19, 15))
+plt.matshow(df_corr, fignum=f.number)
+plt.xticks(range(df_corr.select_dtypes(['number']).shape[1]), df_corr.select_dtypes(['number']).columns, fontsize=14,
+           rotation=45)
+plt.yticks(range(df_corr.select_dtypes(['number']).shape[1]), df_corr.select_dtypes(['number']).columns, fontsize=14)
+cb = plt.colorbar()
+cb.ax.tick_params(labelsize=14)
+plt.title('Correlation Matrix', fontsize=16);
