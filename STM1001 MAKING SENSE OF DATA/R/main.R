@@ -1,8 +1,9 @@
-if (!require("BiocManager", quietly = TRUE))
-  install.packages("BiocManager")
-
-BiocManager::install("edgeR")
+#if (!require("BiocManager", quietly = TRUE))
+#  install.packages("BiocManager")
+#
+#BiocManager::install("edgeR")
 library(edgeR)
+library(ggplot2)
 library(factoextra)
 library(cluster)
 
@@ -10,7 +11,22 @@ library(cluster)
 # Question 1
 ## 1.1 Bonferroni correction and FDR correction
 α <- 0.05
-p_set <- c(0.0292, 0.0069, 0.7924, 0.0305, 0.5276, 0.5424, 0.8708, 0.0264, 0.0104, 0.0518, 0.0048, 0.0002)
+
+p_set <-
+  c(
+    0.0292,
+    0.0069,
+    0.7924,
+    0.0305,
+    0.5276,
+    0.5424,
+    0.8708,
+    0.0264,
+    0.0104,
+    0.0518,
+    0.0048,
+    0.0002
+  )
 p_set_bonferroni <- p.adjust(p_set, method = "bonferroni")
 p_set_fdr <- p.adjust(p_set, method = "fdr")
 
@@ -26,8 +42,18 @@ p_set_fdr
 print(p_set_fdr[p_set_fdr < α])
 sum(p_set_fdr < α)
 
-plot(p_set, p_set_fdr, xlab="p_set", ylab="p_set_fdr", pch=19)
-plot(p_set, p_set_bonferroni, xlab="p_set", ylab="p_set_bonferroni", pch=19)
+plot(p_set,
+     p_set_fdr,
+     xlab = "p_set",
+     ylab = "p_set_fdr",
+     pch = 19)
+plot(
+  p_set,
+  p_set_bonferroni,
+  xlab = "p_set",
+  ylab = "p_set_bonferroni",
+  pch = 19
+)
 
 ## 1.2
 watermelon_data <- readRDS("watermelon_data.RDS")
@@ -36,7 +62,14 @@ watermelon_data$samples
 ## 1.3
 
 # topTags(object, n = 10, adjust.method = "BH", sort.by = "PValue", p.value = 1)
-watermelon_data_fdr <- edgeR::topTags(watermelon_data, n = 5000, adjust.method = "fdr", sort.by = "PValue", p.value = 0.01)$table
+watermelon_data_fdr <-
+  edgeR::topTags(
+    watermelon_data,
+    n = 5000,
+    adjust.method = "fdr",
+    sort.by = "PValue",
+    p.value = 0.01
+  )$table
 
 ## 1.4
 dim(watermelon_data_fdr)
@@ -50,9 +83,13 @@ depression <- read.csv("depression.csv")
 head(depression)
 
 ## 2.1
-boxplot(depression$Score ~ depression$Time,
-        main = "Depression Score Over Time",
-        xlab = "Time", ylab = "Depression Score", col = rgb(0.1,0.1,0.7,0.5))
+boxplot(
+  depression$Score ~ depression$Time,
+  main = "Depression Score Over Time",
+  xlab = "Time",
+  ylab = "Depression Score",
+  col = rgb(0.1, 0.1, 0.7, 0.5)
+)
 
 ## 2.2
 # Yes 黑色的线是median
@@ -60,7 +97,9 @@ boxplot(depression$Score ~ depression$Time,
 # median line of a T0 lies outside of the T1,T2,T3
 # 分散
 # T1, T2 have large interquartile ranges means the data is dispersed.
-# T1, T2 have extreme values at the end of two whiskers, this shows the range of scores has Larger ranges indicate wider distribution, that is, more scattered data.
+# T1, T2 have extreme values at the end of two whiskers,
+# this shows the range of scores has Larger ranges indicate wider distribution,
+# that is, more scattered data.
 
 
 ## 2.3
@@ -79,10 +118,11 @@ summary(one.way)
 ## 2.7
 
 ## 2.8
-depression_scaled<-scale(depression)
+depression_scaled <- scale(depression)
 
 kmeans_depression <- kmeans(depression_scaled, 5)
-fviz_cluster(kmeans_depression, data = depression_scaled)
+kmeans_depression
+fviz_cluster(kmeans_depression, data = depression[, -1])
 # ******************************************************************************************************************** #
 
 # Question 3
