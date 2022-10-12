@@ -4,6 +4,8 @@ if (!require("BiocManager", quietly = TRUE))
 BiocManager::install("edgeR")
 library(edgeR)
 library(factoextra)
+library(cluster)
+
 
 # Question 1
 ## 1.1 Bonferroni correction and FDR correction
@@ -77,8 +79,10 @@ summary(one.way)
 ## 2.7
 
 ## 2.8
-kmeans <- kmeans(depression, 5)
-fviz_cluster(kmeans, data = depression)
+depression_scaled<-scale(depression)
+
+kmeans_depression <- kmeans(depression_scaled, 5)
+fviz_cluster(kmeans_depression, data = depression_scaled)
 # ******************************************************************************************************************** #
 
 # Question 3
