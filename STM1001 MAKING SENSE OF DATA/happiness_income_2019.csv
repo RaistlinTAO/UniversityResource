@@ -1,0 +1,164 @@
+"","country","income_2019","happiness_2019"
+"1","Afghanistan",1760,25.7
+"2","Albania",12700,48.8
+"3","Algeria",14000,50.1
+"4","Angola",5540,NA
+"5","Argentina",17500,59.7
+"6","Armenia",9730,46.8
+"7","Australia",45500,72.2
+"8","Austria",46900,72.9
+"9","Azerbaijan",16200,51.6
+"10","Bahrain",42000,62.3
+"11","Bangladesh",4140,48.3
+"12","Belarus",18000,55.4
+"13","Belgium",43500,68.6
+"14","Belize",7820,NA
+"15","Benin",2230,52.2
+"16","Bhutan",9710,NA
+"17","Bolivia",7150,57.5
+"18","Bosnia and Herzegovina",13100,56.7
+"19","Botswana",16800,34.8
+"20","Brazil",14300,63.8
+"21","Bulgaria",20100,51
+"22","Burkina Faso",1810,47.7
+"23","Burundi",644,37.8
+"24","Cambodia",4080,48.5
+"25","Cameroon",3400,50.8
+"26","Canada",44200,72.3
+"27","Central African Republic",794,34.8
+"28","Chad",1740,44.2
+"29","Chile",23000,62.3
+"30","China",17100,51.2
+"31","Colombia",13600,61.6
+"32","Comoros",2480,42.9
+"33","Congo, Dem. Rep.",838,43.1
+"34","Congo, Rep.",5100,51.9
+"35","Costa Rica",15800,71.2
+"36","Cote d'Ivoire",3910,52.3
+"37","Croatia",24500,55
+"38","Cuba",8130,NA
+"39","Cyprus",34500,61.6
+"40","Czech Republic",34100,69.1
+"41","Denmark",48300,76.5
+"42","Djibouti",3600,NA
+"43","Dominican Republic",16400,56.9
+"44","Ecuador",10200,59.3
+"45","Egypt",11400,41.5
+"46","El Salvador",7510,63.5
+"47","Estonia",32000,60.2
+"48","Eswatini",9560,43.1
+"49","Ethiopia",1900,41.9
+"50","Finland",42400,78.1
+"51","France",40000,66.6
+"52","Gabon",16200,48.3
+"53","Gambia",1570,47.5
+"54","Georgia",10700,46.7
+"55","Germany",46200,70.8
+"56","Ghana",4430,51.5
+"57","Greece",25700,55.1
+"58","Guatemala",7610,64
+"59","Guinea",2420,49.5
+"60","Guyana",7930,NA
+"61","Haiti",1640,37.2
+"62","Honduras",4630,59.5
+"63","Hong Kong, China",57000,55.1
+"64","Hungary",29600,60
+"65","Iceland",47900,75
+"66","India",7230,35.7
+"67","Indonesia",12100,52.9
+"68","Iran",16100,46.7
+"69","Iraq",15700,47.8
+"70","Ireland",72400,70.9
+"71","Israel",34100,71.3
+"72","Italy",35800,63.9
+"73","Jamaica",8310,58.9
+"74","Japan",39700,58.7
+"75","Jordan",8350,46.3
+"76","Kazakhstan",25400,60.6
+"77","Kenya",3160,45.8
+"78","Kuwait",64100,61
+"79","Kyrgyz Republic",3500,55.4
+"80","Lao",6940,48.9
+"81","Latvia",27300,59.5
+"82","Lebanon",11700,47.7
+"83","Lesotho",2920,36.5
+"84","Liberia",1140,45.6
+"85","Libya",14800,54.9
+"86","Lithuania",32400,62.2
+"87","Luxembourg",94300,72.4
+"88","Madagascar",1490,41.7
+"89","Malawi",1180,35.4
+"90","Malaysia",29100,53.8
+"91","Maldives",14300,52
+"92","Mali",2100,47.3
+"93","Malta",39300,67.7
+"94","Mauritania",3890,43.7
+"95","Mauritius",21800,61
+"96","Mexico",18000,64.7
+"97","Moldova",6720,56.1
+"98","Mongolia",12800,54.6
+"99","Montenegro",17800,55.5
+"100","Morocco",7770,50.9
+"101","Mozambique",1170,46.2
+"102","Myanmar",6270,43.1
+"103","Namibia",9700,45.7
+"104","Nepal",2880,51.4
+"105","Netherlands",50500,74.5
+"106","New Zealand",36500,73
+"107","Nicaragua",4620,61.4
+"108","Niger",954,49.1
+"109","Nigeria",5300,47.2
+"110","North Macedonia",13900,51.6
+"111","Norway",66300,74.9
+"112","Oman",35800,NA
+"113","Pakistan",5000,56.9
+"114","Palestine",4670,45.5
+"115","Panama",23300,63
+"116","Paraguay",12000,56.9
+"117","Peru",13000,58
+"118","Philippines",8260,60.1
+"119","Poland",29900,61.9
+"120","Portugal",29300,59.1
+"121","Qatar",113000,NA
+"122","Romania",25500,61.2
+"123","Russia",25700,55.5
+"124","Rwanda",2110,33.1
+"125","Saudi Arabia",48100,64.1
+"126","Senegal",3460,49.8
+"127","Serbia",16700,57.8
+"128","Sierra Leone",1460,39.3
+"129","Singapore",90100,63.8
+"130","Slovak Republic",32100,62.8
+"131","Slovenia",33700,63.6
+"132","Somalia",631,NA
+"133","South Africa",12000,48.1
+"134","South Korea",37300,58.7
+"135","South Sudan",1860,28.2
+"136","Spain",35700,64
+"137","Sri Lanka",12100,43.3
+"138","Sudan",4510,NA
+"139","Suriname",13900,NA
+"140","Sweden",47200,73.5
+"141","Switzerland",59000,75.6
+"142","Syria",2900,NA
+"143","Taiwan",44100,64.6
+"144","Tajikistan",3150,55.6
+"145","Tanzania",2980,34.8
+"146","Thailand",17400,60
+"147","Togo",1610,41.9
+"148","Trinidad and Tobago",28500,61.9
+"149","Tunisia",11100,43.9
+"150","Turkey",25000,51.3
+"151","Turkmenistan",17600,51.2
+"152","Uganda",1870,44.3
+"153","Ukraine",8480,45.6
+"154","United Arab Emirates",65700,67.9
+"155","United Kingdom",40400,71.6
+"156","United States",56700,69.4
+"157","Uruguay",20900,64.4
+"158","Uzbekistan",6490,62.6
+"159","Venezuela",9720,50.5
+"160","Vietnam",6970,53.5
+"161","Yemen",2340,35.3
+"162","Zambia",3700,37.6
+"163","Zimbabwe",2390,33
