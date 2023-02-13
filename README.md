@@ -3,6 +3,16 @@
 ## Auckland University of Technology
 - [COMP615 Foundations of Data Science](COMP615%20%20Foundations%20of%20Data%20Science)
 
+## Australian National University
+- [LAWS4210-LAWS8140 - Commercial Law](LAWS4210-LAWS8140%20-%20Commercial%20Law)
+- [LAWS4217-LAWS8417 - Family Law](LAWS4217-LAWS8417%20-%20Family%20Law)
+- [LAWS8077 - Cyber Law](LAWS8077%20-%20Cyber%20Law)
+- [LAWS8101 - Blockchain & Legal Innovation I](LAWS8101%20-%20Blockchain%20%26%20Legal%20Innovation%20I)
+- [LAWS8102 - Blockchain & Legal Innovation II](LAWS8102%20-%20Blockchain%20%26%20Legal%20Innovation%20II)
+- [LAWS8421 - Income Tax](LAWS8421%20-%20Income%20Tax)
+- [LAWS8584 - Corporate Insolvency](LAWS8584%20-%20Corporate%20Insolvency)
+- [LAWS8586 - Law and Legal Institutions](LAWS8586%20-%20Law%20and%20Legal%20Institutions)
+
 ## Deakin College (Foundation Program)
 - [FNDB020 Accounting](FNDB020%20Accounting)
 
