@@ -23,6 +23,9 @@
 - DATA2x01 Data Science, Big Data and Data Variety
 - SOFT2412 COMP9412 Agile Software Development Practices
 
+## Western Sydney University
+- CPCCBC4003A Select And Prepare A Construction Contract [23139]
+
 ## Xi'an Jiaotong-Liverpool University
 - CPT203 Software Engineering 1
 
