@@ -7,6 +7,7 @@
 - SIT703 Advanced Digital Forensics
 - SIT151 Game Fundamentals
 - SIT706 Cloud Computing
+- SIT104 Introduction to Web Development
 
 ## Deakin College (Foundation Program)
 - FNDB020 Accounting

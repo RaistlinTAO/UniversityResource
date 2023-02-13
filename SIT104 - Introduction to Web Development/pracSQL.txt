@@ -1,0 +1,12 @@
+DROP TABLE Login;
+CREATE TABLE Login
+     ( ID  NUMBER(4) NOT NULL, 
+       USERNAME VARCHAR2(50), 
+       PASSWORD VARCHAR2(20),
+       Primary key (ID) 
+     ); 
+INSERT INTO Login VALUES (1,'john','john08');
+INSERT INTO Login VALUES (2,'nicole','nic');
+INSERT INTO Login VALUES (3,'james','james');
+INSERT INTO Login VALUES (4,'samantha','sam21');
+commit;
