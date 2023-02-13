@@ -11,6 +11,7 @@
 - SIT113 Cloud Computing and Virtualisation
 - SIT708 Mobile Systems Development
 - SIT764 Project Analysis and Design
+- SIT740 Research and Development in Information Technology
 
 ## Deakin College (Foundation Program)
 - FNDB020 Accounting
