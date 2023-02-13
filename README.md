@@ -12,6 +12,7 @@
 - SIT708 Mobile Systems Development
 - SIT764 Project Analysis and Design
 - SIT740 Research and Development in Information Technology
+- SIT742 Modern Data Science
 
 ## Deakin College (Foundation Program)
 - FNDB020 Accounting
