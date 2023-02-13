@@ -1,0 +1,43 @@
+SET FOREIGN_KEY_CHECKS=0
+;
+
+DROP TABLE IF EXISTS `Customer` CASCADE
+;
+
+DROP TABLE IF EXISTS `Item` CASCADE
+;
+
+DROP TABLE IF EXISTS `Order` CASCADE
+;
+
+CREATE TABLE `Customer`
+(
+	`name` VARCHAR(50) 	 NULL,
+	`Id` VARCHAR(50) 	 NULL,
+	`Age` VARCHAR(50) 	 NULL,
+	`DoB` VARCHAR(50) 	 NULL
+)
+;
+
+CREATE TABLE `Item`
+(
+	`Item ID` VARCHAR(50) 	 NULL,
+	`name` VARCHAR(50) 	 NULL,
+	`Price` VARCHAR(50) 	 NULL,
+	`Description` VARCHAR(50) 	 NULL
+)
+;
+
+CREATE TABLE `Order`
+(
+	`Order ID` VARCHAR(50) 	 NULL,
+	`Customer ID` VARCHAR(50) 	 NULL,
+	`Date` VARCHAR(50) 	 NULL,
+	`Item1-Id` VARCHAR(50) 	 NULL,
+	`Item2-Id` VARCHAR(50) 	 NULL
+)
+;
+
+SET FOREIGN_KEY_CHECKS=1
+;
+

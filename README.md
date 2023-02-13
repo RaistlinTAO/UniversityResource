@@ -13,6 +13,7 @@
 - SIT764 Project Analysis and Design
 - SIT740 Research and Development in Information Technology
 - SIT742 Modern Data Science
+- SIT725 Software Engineering
 
 ## Deakin College (Foundation Program)
 - FNDB020 Accounting
