@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<techsum loptopno = "101">
+    <BrandName>Asus</BrandName>
+    <ModelNumber>C202SA-YS02</ModelNumber>
+    <ItemWeight Unit="KG">0.99</ItemWeight>
+    <ProductDescription>ASUS Chromebook C202SA-YS02 11.6" Ruggedized and Water Resistant Design with 180 Degree</ProductDescription>
+    <URL>https://goo.gl/3WUfN9</URL>
+    <Price Currency="USD">209.00</Price>
+    <OperatingSystem>Chrome</OperatingSystem>
+    <Hardware>
+        <Screen Size="11.6">
+            <MaxScreenResolution>1366 * 768</MaxScreenResolution>
+        </Screen>
+        <Processor>1.6 GHz Intel Celeron</Processor>
+        <RAM Type="DDR3L">4</RAM>
+        <HardDrive Type="emmc">16</HardDrive>
+        <WirelessType>
+            <WirelessStandrad>802.11ac</WirelessStandrad>
+        </WirelessType>
+        <USB30Ports>2</USB30Ports>
+        <Batteries averageBatteryLife="10">
+            <BatteryType>Lithium</BatteryType>
+            <BatteryTech>Polymer</BatteryTech>
+        </Batteries>
+    </Hardware>
+</techsum>

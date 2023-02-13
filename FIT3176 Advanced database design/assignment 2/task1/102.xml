@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<techsum loptopno = "102">
+    <BrandName>Apple</BrandName>
+    <ModelNumber>MPTT2LL/A</ModelNumber>
+    <ItemWeight Unit = "KG">2.90</ItemWeight>
+    <ProductDescription>Apple 15" MacBook Pro(Newest Version)</ProductDescription>
+    <URL>https://goo.gl/zXD6nr</URL>
+    <Price Currency = "USD">2549.00</Price>
+    <OperatingSystem>MacOS Sierra</OperatingSystem>
+    <Hardware>
+        <Screen Size = "15">
+            <MaxScreenResolution>2880 * 1800</MaxScreenResolution>
+        </Screen>
+        <Processor>2.9 GHz Intel Core i7</Processor>
+        <RAM Type = "DDR3 SDRAM">16</RAM>
+        <HardDrive Type = "SSD">512</HardDrive>
+        <WirelessType>
+            <WirelessStandrad>802.11b</WirelessStandrad>
+            <WirelessStandrad>802.11g</WirelessStandrad>
+            <WirelessStandrad>802.11n</WirelessStandrad>
+        </WirelessType>
+        <USB30Ports>2</USB30Ports>
+        <Batteries averageBatteryLife = "10">
+            <BatteryType>Lithium</BatteryType>
+            <BatteryTech>Metal</BatteryTech>
+        </Batteries>
+    </Hardware>
+</techsum>

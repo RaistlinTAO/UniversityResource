@@ -14,6 +14,7 @@
 - FIT5197 Statistical data modelling
 - MGB2230 Organisation Behavior
 - MGB2430 Human Resources
+- FIT3176 Advanced database design
 
 ## University of Auckland
 - MECHENG 754 industry 4.0 smart manufacturing

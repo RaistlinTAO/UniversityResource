@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<techsum loptopno="100">
+    <BrandName>Google</BrandName>
+    <ModelNumber>GA00122-US</ModelNumber>
+    <ItemWeight Unit="Pounds">1.09</ItemWeight>
+    <ProductDescription>Google Pixelbook</ProductDescription>
+    <URL>https://goo.gl/CDfecY</URL>
+    <Price Currency="AUD">1325.70</Price>
+    <OperatingSystem>Chrome</OperatingSystem>
+    <Hardware>
+        <Screen Size="12.3">
+            <MaxScreenResolution>2400 * 1600</MaxScreenResolution>
+        </Screen>
+        <Processor>3.3 GHz</Processor>
+        <RAM Type="">8</RAM>
+        <HardDrive Type="SSD">64</HardDrive>
+        <WirelessType>
+            <WirelessStandrad>802.11b</WirelessStandrad>
+            <WirelessStandrad>802.11g</WirelessStandrad>
+            <WirelessStandrad>802.11n</WirelessStandrad>
+        </WirelessType>
+        <USB30Ports>2</USB30Ports>
+        <Batteries averageBatteryLife="0">
+            <BatteryType>Lithium</BatteryType>
+            <BatteryTech>ion</BatteryTech>
+        </Batteries>
+    </Hardware>
+</techsum>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<techsum loptopno = "103">
+    <BrandName>Microsoft</BrandName>
+    <ModelNumber>D9P-00020</ModelNumber>
+    <ItemWeight Unit = "KG">1.25</ItemWeight>
+    <ProductDescription>Go beyond the traditional laptop with Surface Laptop. Backed by the best of Microsoft, including Windows and Office. Enjoy a natural typing experience enhanced by our Signature Alcantara fabric-covered keyboard. Thin, light, and powerful, it fits easily in your bag.</ProductDescription>
+    <URL>https://goo.gl/zXD6nr</URL>
+    <Price Currency = "AUD">1272.00</Price>
+    <OperatingSystem>Windows 10 S</OperatingSystem>
+    <Hardware>
+        <Screen Size = "13.5">
+            <MaxScreenResolution>2256 * 1504</MaxScreenResolution>
+        </Screen>
+        <Processor>i5-7200U</Processor>
+        <RAM Type = "DDR3 SDRAM">4</RAM>
+        <HardDrive Type = "SSD">256</HardDrive>
+        <WirelessType>
+            <WirelessStandrad>802.11ac</WirelessStandrad>
+            <WirelessStandrad>802.11a</WirelessStandrad>
+            <WirelessStandrad>802.11b</WirelessStandrad>
+            <WirelessStandrad>802.11g</WirelessStandrad>
+            <WirelessStandrad>802.11n</WirelessStandrad>
+        </WirelessType>
+        <USB30Ports>1</USB30Ports>
+        <Batteries averageBatteryLife = "8">
+            <BatteryType>Lithium</BatteryType>
+            <BatteryTech>Metal</BatteryTech>
+        </Batteries>
+    </Hardware>
+</techsum>

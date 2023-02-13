@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<techsum loptopno = "104">
+    <BrandName>MSI</BrandName>
+    <ModelNumber>4122904</ModelNumber>
+    <ItemWeight Unit = "KG">1.90</ItemWeight>
+    <ProductDescription>MSI GS73 Stealth 8RF-009AU 17.3" 120Hz Gaming Laptop</ProductDescription>
+    <URL>https://goo.gl/zXD6nr</URL>
+    <Price Currency = "AUD">3699.00</Price>
+    <OperatingSystem>Windows 10 Home Ultra</OperatingSystem>
+    <Hardware>
+        <Screen Size = "17.3">
+            <MaxScreenResolution>1920 * 1080</MaxScreenResolution>
+        </Screen>
+        <Processor> i7 Processor 8750H</Processor>
+        <RAM Type = "DDR4">16</RAM>
+        <HardDrive Type = "SSD">256</HardDrive>
+        <WirelessType>
+            <WirelessStandrad>802.11b</WirelessStandrad>
+            <WirelessStandrad>802.11g</WirelessStandrad>
+            <WirelessStandrad>802.11n</WirelessStandrad>
+        </WirelessType>
+        <USB30Ports>3</USB30Ports>
+        <Batteries averageBatteryLife = "7.5">
+            <BatteryType>Lithium</BatteryType>
+            <BatteryTech>Metal</BatteryTech>
+        </Batteries>
+    </Hardware>
+</techsum>
