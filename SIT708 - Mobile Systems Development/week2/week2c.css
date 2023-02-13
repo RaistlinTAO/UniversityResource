@@ -1,0 +1,14 @@
+p {
+    border-radius: 10px;
+    border: 1px solid blue;
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+.footer{
+    border-radius: 0;
+    border: none;
+    border-top: 3px solid blue;
+    position: fixed;
+    bottom: 20PX;
+}

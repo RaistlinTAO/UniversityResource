@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'montserrat';
+    src: url('fonts/montserratalternates-medium-webfont.woff')
+    format('woff');
+}
+body {
+    font-family: 'montserrat';
+}
+h1 {
+    color: #c9df41;
+    border-bottom: 2px solid #E6B643;
+    letter-spacing: 3px;
+    border-top: 2px dashed #E6B643;
+}
+
+p{
+    color: #2d9b72;
+    width: 100px;
+    line-height: 20px;
+    margin-left: 20%;
+}

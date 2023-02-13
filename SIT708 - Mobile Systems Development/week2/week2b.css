@@ -1,0 +1,24 @@
+h1 {
+    text-align: center;
+    border-bottom: 2px solid #E6B643;
+    border-top: 2px dashed #E6B643;
+    padding: 8px;
+    margin: 8px;
+}
+
+p{
+    margin-bottom: 50px;
+}
+
+@media screen and (max-width: 600px) {
+    h1 {
+        text-align: left;
+        border-bottom: 2px solid #E6B643;
+        border-top: hidden;
+        padding: 2px 8px 2px 8px;
+        margin: 2px 8px 2px 8px;
+    }
+    p{
+        margin-bottom: 0;
+    }
+}
