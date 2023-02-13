@@ -8,6 +8,9 @@
 - SIT151 Game Fundamentals
 - SIT706 Cloud Computing
 
+## Deakin College (Foundation Program)
+- FNDB020 Accounting
+
 ## La Trobe University
 - STM1001 MAKING SENSE OF DATA
 
