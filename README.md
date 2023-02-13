@@ -14,6 +14,7 @@
 - SIT740 Research and Development in Information Technology
 - SIT742 Modern Data Science
 - SIT725 Software Engineering
+- SIT737 Service Oriented Architectures and Technologies
 
 ## Deakin College (Foundation Program)
 - FNDB020 Accounting
