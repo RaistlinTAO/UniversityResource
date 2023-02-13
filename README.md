@@ -5,6 +5,7 @@
 
 ## Deakin University
 - SIT703 Advanced Digital Forensics
+- SIT151 Game Fundamentals
 
 ## La Trobe University
 - STM1001 MAKING SENSE OF DATA
