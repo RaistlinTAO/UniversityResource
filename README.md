@@ -26,6 +26,7 @@
 
 ## Western Sydney University
 - CPCCBC4003A Select And Prepare A Construction Contract [23139]
+- CPCCBC4004A Identify And Produce Estimated Costs For Building And Construction Projects
 
 ## Xi'an Jiaotong-Liverpool University
 - CPT203 Software Engineering 1
