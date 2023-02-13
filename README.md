@@ -10,6 +10,7 @@
 - SIT104 Introduction to Web Development
 - SIT113 Cloud Computing and Virtualisation
 - SIT708 Mobile Systems Development
+- SIT764 Project Analysis and Design
 
 ## Deakin College (Foundation Program)
 - FNDB020 Accounting
