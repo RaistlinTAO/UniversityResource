@@ -1,7 +1,10 @@
-# AssignmentTeaching
+# University Learning Assignments and Materials
 
 ## Auckland University of Technology
-- COMP615 Foundations of Data Science
+- [COMP615 Foundations of Data Science](AssignmentTeaching/COMP615 Foundations of Data Science)
+
+## Deakin College (Foundation Program)
+- FNDB020 Accounting
 
 ## Deakin University
 - SIT703 Advanced Digital Forensics
@@ -15,9 +18,6 @@
 - SIT742 Modern Data Science
 - SIT725 Software Engineering
 - SIT737 Service Oriented Architectures and Technologies
-
-## Deakin College (Foundation Program)
-- FNDB020 Accounting
 
 ## La Trobe University
 - STM1001 MAKING SENSE OF DATA
