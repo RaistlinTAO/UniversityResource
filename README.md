@@ -8,6 +8,7 @@
 - SIT151 Game Fundamentals
 - SIT706 Cloud Computing
 - SIT104 Introduction to Web Development
+- SIT113 Cloud Computing and Virtualisation
 
 ## Deakin College (Foundation Program)
 - FNDB020 Accounting
