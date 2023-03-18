@@ -1,0 +1,91 @@
+Network Setting VMNet8
+
+Network 192.168.203.0 / 24
+
+255.255.255.0
+
+Host   192.168.203.1
+
+.0 .1 .2
+Server 192.168.203.100
+Client 192.168.203.10
+Moniter  192.168.203.11
+
+Service
+systemctl start/restart/stop/status serviceName
+
+systemctl status mqtt 
+
+
+/etc/mosquitto/
+
+sudo cp /usr/share/doc....../mosquitto.conf.example /etc/mosquitto/conf.d/mosquitto.conf
+.conf Default Initial Setting
+
+listener 1883 
+allow_anonymous true
+
+
+RESTART SERVICE
+
+
+publisher
+
+mosquitto_pub -h 192.168.203.100 -t port-tide -m "123"
+
+H host T Topic M Message
+
+JSON {High: xxx, Low: xxx}
+
+4.4 4.6
+4.4 4.4
+
+1. $RANDOM
+2. According to the website, the range of high value is 4.4 - 7.4 (小数点)
+the range of low value is 1.0-3.7
+3. scale = 1
+4. 
+
+
+
+mosquitto_sub -t port-tide
+
+
+
+Next I ll perform a Fake data injection attack to broker from host PC, with the help of MQTT explorer
+
+
+Orignal
+listener 1883 
+allow_anonymous false
+password_file
+
+mosquitto_pub -h 192.168.203.100 -u roger -P password -t port-tide -m "123"
+
+mosquitto_sub -t port-tide -u roger -P password
+
+
+I have finished the repeat attack test on the server, the result indicate the authentication config is fully functional
+
+However, according the result of wireshark
+ User name / Password
+
+attackers initial another 
+In order to solve 
+
+T9 advanced
+additional setup 
+such as TLS certificate (like HTTPS / Http)
+ensure the mqtt package is encrypted and cannot be shown to the wireshark
+
+https://mosquitto.org/documentation/authentication-methods/
+http://www.steves-internet-guide.com/mosquitto-tls/
+
+TLS
+
+wireshark
+乱码
+
+
+In conclusion
+
