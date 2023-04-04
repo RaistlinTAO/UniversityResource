@@ -53,6 +53,10 @@
 
 - [MECHENG 754 industry 4.0 smart manufacturing](MECHENG%20754%20industry%204.0%20smart%20manufacturing)
 
+## University of Bristol
+
+- [COMS30014 - Artificial Intelligence](COMS30014%20-%20Artificial%20Intelligence)
+
 ## University of Sydney
 
 - [BUS2004 - Predictive Analytics](BUS2004%20-%20Predictive%20Analytics)
