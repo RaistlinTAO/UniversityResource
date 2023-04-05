@@ -57,6 +57,10 @@
 
 - [COMS30014 - Artificial Intelligence](COMS30014%20-%20Artificial%20Intelligence)
 
+## University of Melbourne
+
+- [COMP90024 - Cluster and Cloud Computing](COMP90024%20-%20Cluster%20and%20Cloud%20Computing)
+
 ## University of Sydney
 
 - [BUS2004 - Predictive Analytics](BUS2004%20-%20Predictive%20Analytics)
