@@ -56,6 +56,7 @@
 ## University of Bristol
 
 - [COMS30014 - Artificial Intelligence](COMS30014%20-%20Artificial%20Intelligence)
+- [COMS30017 - Computational Neuroscience](COMS30017%20-%20Computational%20Neuroscience)
 
 ## University of Melbourne
 
