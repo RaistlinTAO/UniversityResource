@@ -1,0 +1,148 @@
+\documentclass [11pt]{article}
+%\usepackage{/home/acrc-users/staff/andrew/solaris/txt/latex/mynotes}
+\def\answers{0}
+
+\usepackage{times,a4wide}
+\textheight 9.75in
+\usepackage[top=1.3cm, bottom=1.3cm, outer=5cm, inner=2cm, heightrounded, marginparwidth=2.5cm, marginparsep=2cm]{geometry}
+
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\pagestyle{empty}
+
+%\newcommand{\answer}[1]{\ifnum\answers=0{\color{red}{\bf Answer:}\\\it{#1}}\fi}
+\newcommand{\answer}[1]{}
+
+\begin{document}
+Department of Computer Science \hfill University of Bristol
+
+\begin{center}
+{\large\bf COMS20011: Symbols, Patterns and Signals}
+\vspace{2ex}
+
+{\large\bf Problem Sheet: Maximum likelihood}
+\end{center}
+\vspace{1ex}
+
+\begin{enumerate}
+
+\item You were consulted by a Physics student who is trying to estimate the voltage (V) given current (I) and resistance (R) information. The student informs you that the physical model is
+\begin{equation*}
+I = \frac{V}{R} + \epsilon
+\end{equation*}
+subject to a measurement error $\epsilon \sim \mathcal{N}(0, \sigma^2)$.
+Assuming \textit{i.i.d} observations, the likelihood of $p(D | V)$ where $V$ is the model's only parameter and $D$ is the observed data is equal to:
+\begin{equation*}
+p(D|V) = \prod_i {\frac{1}{\sqrt{2 \pi} \sigma} e^{-\frac{1}{2}\frac{(I_i-\frac{V}{R_i})^2}{\sigma^2}}}
+\end{equation*}
+where $I_i$ is the current value for observation $i$ and $R_i$ is the resistance value for observation $i$. Show that the Maximum Likelihood value of $V$ is
+$V_{ML} = \sum \frac{I_i}{R_i}/{\sum{\frac{1}{R_i^2}}} $  
+(differentiate $\log p(D|V)$ wrt to the parameter, $V$, then find the maximum by solving for the setting of $V$ for which the gradient is zero)
+
+\answer{
+1. Take the natural logarithm: 
+$\ln p(D|V) = N \ln \frac{1}{\sqrt{2 \pi} \sigma} + \sum_i -\frac{1}{2} \frac{(I_i - \frac{V}{R_i})^2}{\sigma^2}$
+
+2. Take the derivative: 
+$\frac{d}{dV} \ln p(D|V) = \frac{1}{\sigma^2} \sum_i \frac{1}{R_i} (I_i - \frac{V}{R_i})$
+
+3. Find the solution by setting derivative to 0:
+$-\frac{1}{\sigma^2} \sum_i \frac{1}{R_i} (I_i - \frac{V}{R_i}) = 0$\\
+$\sum_i\frac{I_i}{R_i} - V_{ML}\sum_i{\frac{1}{R_i^2}} = 0$\\
+$V_{ML} = \sum \frac{I_i}{R_i}/{\sum{\frac{1}{R_i^2}}}$
+}
+
+
+
+\item For a given probabilistic model,
+\begin{equation*}
+p(D | \theta) = b \ \ e^{-(3-\theta)^2}
+\end{equation*}
+
+where $b$ is a normalising constant and a known prior of
+\begin{equation*}
+p(\theta) = c \ e^{-\theta (\theta-1)}
+\end{equation*}
+where $c$ is a normalising constant,
+Find the maximum a posteriori value of $\theta$ (the posterior is $p(\theta| D) \propto P(\theta) P(D|\theta)$; find the maximum by computing the gradient of $\log p(\theta | D)$ and solving for where the gradient is zero).   \textbf{Clearly show the steps you followed in finding the answer.}
+
+\answer{
+\begin{align}
+&p(D|\theta) p(\theta) &= &b e^{-(3-\theta)^2} c e^{-\theta(\theta-1)}\\
+&\ln p(D|\theta) p(\theta) &= &\ln b + \ln c - (3-\theta)^2 - \theta(\theta-1)\\
+&\frac{d}{d\theta} \ln p(D|\theta) p(\theta) &= &2 (3-\theta) - 2\theta +1\\
+&&= &-4 \theta +7
+\end{align}
+\begin{align}
+&-4 \theta_{MAP} + 7 = 0\\
+&\theta_{MAP} = \frac{7}{4}
+\end{align}
+}
+
+\item Suppose that X is a discrete random variable with the following probability mass function, where $0 \le \theta \le 1$ is a parameter.
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+$X$ &0 &1 &2 &3\\ \hline
+$P(X)$ &$\frac{2 \theta}{3}$ &$\frac{\theta}{3}$ &$\frac{2(1-\theta)}{3}$ &$\frac{(1-\theta)}{3}$\\ \hline
+\end{tabular}
+\end{center}
+
+The following 10 independent observations were taken from this distribution:
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+3 &0 &2 &1 &3 &2 &1 &0 &2 &1\\ \hline
+\end{tabular}
+\end{center}
+
+\begin{enumerate}
+\item What is the Maximum Likelihood estimate of $\theta$
+\item Assume you have prior knowledge that $p(\theta) = b\, \theta \, (1-\theta)$, what would the Maximum a Posteriori (MAP) be?
+\end{enumerate}
+
+\answer{
+\begin{enumerate}
+\item Following the MLE recipe,\\
+\begin{align*}
+p(D | \theta) &= \prod_i P(d_i | \theta)\\
+&= {\left ( \frac{2 \theta} {3} \right )}^2 {\left ( \frac{\theta} {3} \right )}^3 {\left ( \frac{2 (1-\theta)} {3} \right )}^3 {\left ( \frac{1 - \theta} {3} \right )}^2\\[8pt]
+&= c \, \theta^5 \, (1-\theta)^5 \textcolor{red}{\text{(where c is a constant)}}
+\end{align*}
+
+1. Take the natural log, so
+\begin{equation*}
+ln p(D|\theta) = \ln c + 5 \ln \theta + 5 \ln (1-\theta) 
+\end{equation*}
+
+2. Take the derivative
+\begin{equation*}
+\frac{d}{d\, \theta}{\ln p(D|\theta)} = \frac{5}{\theta} - \frac{5}{1-\theta}
+\end{equation*}
+
+3. Set the derivative to 0
+\begin{align*}
+&\frac{5}{\theta_{ML}} - \frac{5}{1-\theta_{ML}} = 0 \\[8pt]
+&5(1-\theta_{ML}) - 5\theta_{ML} = 0\\[8pt]
+&\theta_{ML} = \frac{1}{2}
+\end{align*}
+
+\item When introducing prior,
+\begin{align*}
+p(D | \theta) p(\theta) &= {\left ( \frac{2 \theta} {3} \right )}^2 {\left ( \frac{\theta} {3} \right )}^3 {\left ( \frac{2 (1-\theta)} {3} \right )}^3 {\left ( \frac{1 - \theta} {3} \right )}^2 b \theta (1-\theta)\\[8pt]
+&= c \, \theta^6 \, (1-\theta)^6 \textcolor{red}{\text{(where c is a constant)}}
+\end{align*}
+
+Following the same formula as in (a), $\theta_{MAP}$ = 0.5 (same as $\theta_{ML}$ for this particular case)
+
+\end{enumerate}
+}
+
+\end{enumerate}
+
+
+\end{document}

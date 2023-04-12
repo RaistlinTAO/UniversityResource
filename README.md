@@ -55,6 +55,7 @@
 
 ## University of Bristol
 
+- [COMS20011 - Data Driven Computer Science](COMS20011%20-%20Data%20Driven%20Computer%20Science)
 - [COMS30014 - Artificial Intelligence](COMS30014%20-%20Artificial%20Intelligence)
 - [COMS30017 - Computational Neuroscience](COMS30017%20-%20Computational%20Neuroscience)
 

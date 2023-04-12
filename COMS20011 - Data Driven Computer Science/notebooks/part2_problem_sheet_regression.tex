@@ -1,0 +1,50 @@
+\documentclass [11pt]{article}
+%\usepackage{/home/acrc-users/staff/andrew/solaris/txt/latex/mynotes}
+\def\answers{0}
+
+\usepackage{times,a4wide}
+\textheight 9.75in
+\usepackage[top=1.3cm, bottom=1.3cm, outer=5cm, inner=2cm, heightrounded, marginparwidth=2.5cm, marginparsep=2cm]{geometry}
+
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\pagestyle{empty}
+
+%\newcommand{\answer}[1]{\ifnum\answers=0{\color{red}{\bf Answer:}\\\it{#1}}\fi}
+\newcommand{\answer}[1]{}
+
+\begin{document}
+Department of Computer Science \hfill University of Bristol
+
+\begin{center}
+{\large\bf COMS20011: Symbols, Patterns and Signals}
+\vspace{2ex}
+
+{\large\bf Problem Sheet: Regression}
+\end{center}
+\vspace{1ex}
+
+For the data sample in the table, and a model of the form $y=w_0 + w_1 x$, a noise-level of $\sigma=1$ and a regulariser of $\mathbf{\Lambda} = 2 \mathbf{I}$, compute the regularised maximum-likelihood solution,
+\begin{align}
+  \mathcal{L}(\mathbf{w}) = \log \mathcal{N}(\mathbf{y}; \mathbf{Xw}, \sigma^2) - \tfrac{1}{2} \mathbf{w}^T \mathbf{\Lambda w}
+\end{align}
+
+
+\begin{table}[h]
+\centering
+\begin{tabular}{cc}
+  $x$ & $y$\\
+  \hline
+  -2 & -6.2\\
+  -1 & -2.6\\
+   0 &  0.5\\
+   1 &  2.7\\
+   2 &  5.7
+\end{tabular}
+\end{table}
+
+
+
+\end{document}
