@@ -1,0 +1,114 @@
+<!-- Based on `pom.xml` from https://github.com/martinprobson/Spark-Scala-Maven-Example -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <!-- Version of this POM file -->
+  <modelVersion>4.0.0</modelVersion>
+  <!-- Required package info -->
+  <groupId>au.edu.latrobe.bdc</groupId>
+  <artifactId>task1c</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <!-- Properties for plugins -->
+  <properties>
+    <maven.compiler.source>1.7</maven.compiler.source>
+    <maven.compiler.target>1.7</maven.compiler.target>
+    <encoding>UTF-8</encoding>
+    <scala.version>2.11.8</scala.version>
+    <scala.compat.version>2.11</scala.compat.version>
+  </properties>
+  <!-- Project dependencies -->
+  <dependencies>
+    <dependency>
+      <groupId>org.scala-lang</groupId>
+      <artifactId>scala-library</artifactId>
+      <version>${scala.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-core_2.11</artifactId>
+      <version>2.1.2</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-sql_2.11</artifactId>
+      <version>2.1.2</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+  <!-- Build configuration -->
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <!-- Build plugins -->
+    <plugins>
+      <!-- Scala compiler -->
+      <plugin>
+        <groupId>net.alchim31.maven</groupId>
+        <artifactId>scala-maven-plugin</artifactId>
+        <version>3.3.1</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+            <configuration>
+              <args>
+                <arg>-feature</arg>
+                <arg>-deprecation</arg>
+                <arg>-dependencyfile</arg>
+                <arg>${project.build.directory}/.scala_dependencies</arg>
+              </args>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- Remove external Spark dependencies from the uber jar -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.1.0</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+            <!-- Remove signed keys to prevent security exceptions on uber jar -->
+            <!-- See https://stackoverflow.com/a/6743609/7245239 -->
+            <filters>
+              <filter>
+                <artifact>*:*</artifact>
+                <excludes>
+                    <exclude>META-INF/*.SF</exclude>
+                    <exclude>META-INF/*.DSA</exclude>
+                    <exclude>META-INF/*.RSA</exclude>
+                </excludes>
+              </filter>
+            </filters>
+              <transformers>
+                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                  <manifestEntries>
+                    <Main-Class>Main</Main-Class>
+                  </manifestEntries>
+                </transformer>
+              </transformers>
+              <artifactSet>
+                <excludes>
+                  <exclude>javax.servlet:*</exclude>
+                  <exclude>org.apache.hadoop:*</exclude>
+                  <exclude>org.apache.maven.plugins:*</exclude>
+                  <exclude>org.apache.spark:*</exclude>
+                  <exclude>org.apache.avro:*</exclude>
+                  <exclude>org.apache.parquet:*</exclude>
+                  <exclude>org.scala-lang:*</exclude>
+                </excludes>
+              </artifactSet>
+              <finalName>${project.artifactId}-${project.version}-uber</finalName>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

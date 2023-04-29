@@ -1,0 +1,5 @@
+Months: x = 200901, y = 200902
+hashtagName: followfriday, countX: 5442, countY: 19078
+
+Months: x = 200904, y = 200905
+hashtagName: ff, countX: 2605, countY: 8567

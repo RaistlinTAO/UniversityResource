@@ -41,6 +41,7 @@
 ## La Trobe University
 
 - [STM1001 MAKING SENSE OF DATA](STM1001%20MAKING%20SENSE%20OF%20DATA)
+- [CSE3BDC/CSE5BDC - Big Data Management on the Cloud](CSE3BDC-CSE5BDC%20-%20Big%20Data%20Management%20on%20the%20Cloud)
 
 ## Monash University
 

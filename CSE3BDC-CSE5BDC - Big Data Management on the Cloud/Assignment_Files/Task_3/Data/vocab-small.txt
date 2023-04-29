@@ -1,0 +1,5 @@
+1 plane
+2 car
+3 motorbike
+4 truck
+5 boat
