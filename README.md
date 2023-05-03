@@ -70,6 +70,7 @@
 - [BUSS6002 Data Science in Business](BUSS6002%20Data%20Science%20in%20Business)
 - [DATA2x01 Data Science, Big Data and Data Variety](DATA2x01%20Data%20Science%2C%20Big%20Data%20and%20Data%20Variety)
 - [SOFT2412 COMP9412 Agile Software Development Practices](SOFT2412%20COMP9412%20Agile%20Software%20Development%20Practices)
+- [DATA3404 - Scalable Data Management](DATA3404%20-%20Scalable%20Data%20Management)
 
 ## Western Sydney University
 
