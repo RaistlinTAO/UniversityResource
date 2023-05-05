@@ -1,0 +1,34 @@
+// Exercise 1
+
+val someNumbers = sc.parallelize(1 to 1000)
+val result = someNumbers.map(math.sqrt(_)).sum()
+
+// Exercise 2
+
+val people = sc.parallelize(Array(("Jane", "student", 1000),
+  ("Peter", "doctor", 100000), ("Mary", "doctor", 200000),
+  ("Michael", "student", 1000)))
+val result = people.map(p => (p._2, p._3)).reduceByKey(_ + _).sortBy(_._2, true)
+result.collect
+
+// Exercise 3
+
+val countryAge = censusSplit.map(r => (r(13), r(0).toInt)).filter(_._1 != "?")
+
+// Exercise 4
+
+val oldestPerCountry = countryAge.distinct.reduceByKey(math.max)
+
+// Exercise 5
+
+oldestPerCountry.sortBy(_._2, false).take(7)
+
+// Exercise 6
+
+val allPeople = censusSplit.map(r => (r(13), r(3), r(6), r(9)))
+allPeople.take(5).foreach(println)
+val filteredPeople = allPeople.filter(_._3 != "?")
+val canadians = filteredPeople.filter(_._1 == "Canada")
+val americans = filteredPeople.filter(_._1 == "United-States")
+val repCandidates = canadians.map(r => (r._3, r)).join(americans.map(r => (r._3, r))).values
+val includingDoctorate = repCandidates.filter(r => r._1._2 == "Doctorate" || r._2._2 == "Doctorate")

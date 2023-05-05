@@ -1,0 +1,19 @@
+// *** Exercise 1 ***
+weatherMonthDF.filter($"yearMonth" > "2017-11").
+  groupBy("yearMonth").avg("mslp_9am").show()
+// Data read = 2.3 KB
+weatherMonthDF.filter($"yearMonth" < "2017-11").
+  groupBy("yearMonth").avg("mslp_9am").show()
+// Data read = 8.8 KB
+
+// *** Exercise 2 ***
+rangeRdd.treeReduce(_ + _, 2) // Uses 2 stages
+rangeRdd.treeReduce(_ + _, 3) // Uses 3 stages
+
+// *** Exercise 3 ***
+pokedexRDD.
+  filter(_.getAs[Any]("next_evolution") == null).
+  sortBy(_.getAs[Double]("spawn_chance"), false).
+  map(_.getAs[String]("name")).
+  take(5)
+// Input: 197.5 KB, Shuffle: 9.7 KB

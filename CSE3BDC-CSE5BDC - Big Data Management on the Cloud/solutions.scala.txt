@@ -1,0 +1,66 @@
+// Exercise 1
+var name = "John Citizen"
+name = 43
+// Since name is a String it cannot store an Int, hence type mismatch.
+
+// Exercise 2
+val u = List(2, 5, 3)
+val v = List(4, 3, 7)
+val dot = u.zip(v).map(t => t._1 * t._2).reduce(_ + _)
+print(dot)
+
+// Exercise 3
+def extract(word:String, n:Int) : Char = {
+  if(n < word.length) {
+    word(n)
+  } else {
+    '-'
+  }
+}
+
+// Exercise 4
+// Verbose way
+def find_max(sequence:Seq[Int]) : Int = {
+  sequence.reduce((a, b) => {
+    if(a > b) {
+      a
+    } else {
+      b
+    }
+  })
+}
+// Less verbose way
+def find_max(sequence:Seq[Int]) : Int = {
+  sequence.reduce((x, y) => Math.max(x, y))
+}
+// Even less verbose way
+def find_max(sequence:Seq[Int]) : Int = {
+  sequence.reduce(Math.max)
+}
+// The correct way to do it in Scala, but not what we asked you to do:
+def find_max(sequence:Seq[Int]) : Int = {
+  sequence.max
+}
+// All answers are acceptable
+
+// Exercise 5
+def matchedNumbers(a:Seq[Any], b:Seq[Any]) : Any = {
+  a.zip(b).filter(x => x._1 == x._2).map(_._1)
+}
+
+// Exercise 6
+def eligibility(person:(String, Int, String)) : Boolean = {
+  person match {
+    case (name:String, age:Int, gender:String) if gender == "female" && age >= 13 =>
+      println(name + " is too old and not male")
+      false
+    case (name:String, _, gender:String) if gender == "female" =>
+      println(name + " is not male")
+      false
+    case (name:String, age:Int, _) if age >= 13 =>
+      println(name + " is too old")
+      false
+    case _ =>
+      true
+  }
+}
