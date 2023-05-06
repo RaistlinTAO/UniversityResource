@@ -10,13 +10,14 @@ object Main {
     val twitterdata = twitterLines.map(_.split("\t"))
 
     // TODO: *** Put your solution here ***
-
+    val resultRDD = twitterdata.sortBy(a => a(2).toInt, ascending = false).first()
+    println("month: " + resultRDD(1) + ", count: " + resultRDD(2) + ", hashtagName: " + resultRDD(3))
   }
 
   // Do not edit the main function
   def main(args: Array[String]) {
     // Set log level
-    import org.apache.log4j.{Logger,Level}
+    import org.apache.log4j.{Logger, Level}
     Logger.getLogger("org").setLevel(Level.WARN)
     Logger.getLogger("akka").setLevel(Level.WARN)
     // Initialise Spark

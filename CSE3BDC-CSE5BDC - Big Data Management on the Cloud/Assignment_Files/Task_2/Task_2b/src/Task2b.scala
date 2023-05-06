@@ -10,13 +10,20 @@ object Main {
     val twitterdata = twitterLines.map(_.split("\t"))
 
     // TODO: *** Put your solution here ***
+    //val resultRDD = twitterdata.groupBy(a => a(3)).mapValues(_.map(_(2).toInt).sum).sortBy(_._2, ascending = false).first()
 
+    val resultRDD = twitterdata.groupBy(a => a(3))
+      .mapValues(_.map(_(2).toInt).sum)
+      .sortBy(_._2, ascending = false)
+      .first()
+
+    println(resultRDD._1 + "\t" + resultRDD._2)
   }
 
   // Do not edit the main function
   def main(args: Array[String]) {
     // Set log level
-    import org.apache.log4j.{Logger,Level}
+    import org.apache.log4j.{Logger, Level}
     Logger.getLogger("org").setLevel(Level.WARN)
     Logger.getLogger("akka").setLevel(Level.WARN)
     // Initialise Spark

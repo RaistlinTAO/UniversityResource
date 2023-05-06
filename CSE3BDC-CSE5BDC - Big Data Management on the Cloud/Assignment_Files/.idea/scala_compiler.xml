@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ScalaCompilerConfiguration">
+    <profile name="Maven 1" modules="task1c">
+      <option name="deprecationWarnings" value="true" />
+      <option name="featureWarnings" value="true" />
+      <parameters>
+        <parameter value="-dependencyfile" />
+        <parameter value="E:\Projects\UniversityResource\CSE3BDC-CSE5BDC - Big Data Management on the Cloud\Assignment_Files\Task_1\Task_1c\target/.scala_dependencies" />
+      </parameters>
+    </profile>
+    <profile name="Maven 2" modules="task1d">
+      <option name="deprecationWarnings" value="true" />
+      <option name="featureWarnings" value="true" />
+      <parameters>
+        <parameter value="-dependencyfile" />
+        <parameter value="E:\Projects\UniversityResource\CSE3BDC-CSE5BDC - Big Data Management on the Cloud\Assignment_Files\Task_1\Task_1d\target/.scala_dependencies" />
+      </parameters>
+    </profile>
+    <profile name="Maven 3" modules="task2a">
+      <option name="deprecationWarnings" value="true" />
+      <option name="featureWarnings" value="true" />
+      <parameters>
+        <parameter value="-dependencyfile" />
+        <parameter value="E:\Projects\UniversityResource\CSE3BDC-CSE5BDC - Big Data Management on the Cloud\Assignment_Files\Task_2\Task_2a\target/.scala_dependencies" />
+      </parameters>
+    </profile>
+    <profile name="Maven 4" modules="task2b">
+      <option name="deprecationWarnings" value="true" />
+      <option name="featureWarnings" value="true" />
+      <parameters>
+        <parameter value="-dependencyfile" />
+        <parameter value="E:\Projects\UniversityResource\CSE3BDC-CSE5BDC - Big Data Management on the Cloud\Assignment_Files\Task_2\Task_2b\target/.scala_dependencies" />
+      </parameters>
+    </profile>
+    <profile name="Maven 5" modules="task2c">
+      <option name="deprecationWarnings" value="true" />
+      <option name="featureWarnings" value="true" />
+      <parameters>
+        <parameter value="-dependencyfile" />
+        <parameter value="E:\Projects\UniversityResource\CSE3BDC-CSE5BDC - Big Data Management on the Cloud\Assignment_Files\Task_2\Task_2c\target/.scala_dependencies" />
+      </parameters>
+    </profile>
+    <profile name="Maven 6" modules="task3a">
+      <option name="deprecationWarnings" value="true" />
+      <option name="featureWarnings" value="true" />
+      <parameters>
+        <parameter value="-dependencyfile" />
+        <parameter value="E:\Projects\UniversityResource\CSE3BDC-CSE5BDC - Big Data Management on the Cloud\Assignment_Files\Task_3\Task_3a\target/.scala_dependencies" />
+      </parameters>
+    </profile>
+    <profile name="Maven 7" modules="task3b">
+      <option name="deprecationWarnings" value="true" />
+      <option name="featureWarnings" value="true" />
+      <parameters>
+        <parameter value="-dependencyfile" />
+        <parameter value="E:\Projects\UniversityResource\CSE3BDC-CSE5BDC - Big Data Management on the Cloud\Assignment_Files\Task_3\Task_3b\target/.scala_dependencies" />
+      </parameters>
+    </profile>
+    <profile name="Maven 8" modules="taskbonus1">
+      <option name="deprecationWarnings" value="true" />
+      <option name="featureWarnings" value="true" />
+      <parameters>
+        <parameter value="-dependencyfile" />
+        <parameter value="E:\Projects\UniversityResource\CSE3BDC-CSE5BDC - Big Data Management on the Cloud\Assignment_Files\Task_Bonus\Task_Bonus1\target/.scala_dependencies" />
+      </parameters>
+    </profile>
+  </component>
+</project>

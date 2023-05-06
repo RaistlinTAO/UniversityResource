@@ -5,6 +5,7 @@ import org.apache.spark.sql.expressions._
 
 // Define case classes for input data
 case class Docword(docId: Int, vocabId: Int, count: Int)
+
 case class VocabWord(vocabId: Int, word: String)
 
 object Main {
@@ -23,13 +24,20 @@ object Main {
       as[VocabWord]
 
     // TODO: *** Put your solution here ***
-
+    //repartition(1)
+    docwords.join(vocab, docwords("vocabId") === vocab("vocabId"))
+      .select("word", "count")
+      .groupBy("word")
+      .sum("count").as("count")
+      .orderBy("word")
+      .write.mode(SaveMode.Overwrite)
+      .csv("file:///root/labfiles/Task_3/Task_3a-out")
   }
 
   // Do not edit the main function
   def main(args: Array[String]) {
     // Set log level
-    import org.apache.log4j.{Logger,Level}
+    import org.apache.log4j.{Logger, Level}
     Logger.getLogger("org").setLevel(Level.WARN)
     Logger.getLogger("akka").setLevel(Level.WARN)
     // Initialise Spark
