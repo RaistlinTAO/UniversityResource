@@ -52,6 +52,7 @@
 
 ## University of Auckland
 
+- [MECHENG 710 - Advanced Industrial Automation](MECHENG%20710%20-%20Advanced%20Industrial%20Automation)
 - [MECHENG 754 industry 4.0 smart manufacturing](MECHENG%20754%20industry%204.0%20smart%20manufacturing)
 
 ## University of Bristol
