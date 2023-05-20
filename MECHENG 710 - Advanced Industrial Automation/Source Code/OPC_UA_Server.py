@@ -7,45 +7,6 @@
 # Please don't modify any code in this file!!!
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # from OPC UA Library to import uamethod and server
 # import all the required python libraries
 import opcua
@@ -194,6 +155,7 @@ def Start_Kuka_Prog1(parent):
     Kuka_Prog1_Start_flag = True
 
     return 0
+
 
 @uamethod
 def Start_Kuka_Prog2(parent):

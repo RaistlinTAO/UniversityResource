@@ -1,0 +1,3 @@
+opcua
+numpy
+cryptography
