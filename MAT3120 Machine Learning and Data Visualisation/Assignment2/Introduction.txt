@@ -1,0 +1,49 @@
+Introduction
+
+Aims and Target
+ 1. Lib carets
+ 2. Algorithem Ridge Regression Bagging Tree 
+
+Features
+
+Class
+
+Prediction Model
+Features -> Class
+
+
+2. Code
+ A Structure Flow Chart
+ 1. Cleaning
+ 2. Split
+ S3 Tuning
+ 4 Output
+
+Split Overfitting
+
+
+
+3. Result Analysis
+
+Bar chart
+these factors
+
+Considering these factors, we conclude that the Logistic Ridge Regression model trained on the unbalanced set is the most suitable for the task at hand
+
+
+
+4. Implementation Diffculty
+CPU Usage
+CPU 利用率低 library(doFuture) -》 100%
+
+registerDoFuture()
+plan(multisession, workers = availableCores() - 1)
+
+Training Duration
+ MLData2023_cleaned <- MLData2023_cleaned[1:500,]
+（Tree Bagging Train Class 0 , 1）
+
+
+5. Conclusion
+We have learnt that xxx
+MAT3120.3 Introduction.pdf Object
