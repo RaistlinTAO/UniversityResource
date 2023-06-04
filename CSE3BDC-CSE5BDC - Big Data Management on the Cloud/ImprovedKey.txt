@@ -1,0 +1,25 @@
+13
+
+In the past, many companies focused primarily on disaster recovery when dealing with data and business operations. Disaster recovery is a strategy aimed at quickly restoring business operations and data to a normal state in the event of a significant failure or disaster. It emphasizes minimizing the impact of failures on business operations and ensuring the integrity and recoverability of data.
+
+However, when companies decide to migrate their infrastructure to the cloud, they start considering the support for high availability. High availability is an approach to system design and architecture that ensures continuous availability of the system over an extended period of time, providing seamless service even during planned maintenance or interruptions caused by failures. High availability focuses on the ongoing stability of the system and the uninterrupted service to users, even in the face of failures or maintenance. Companies can benefit from improved business continuity and enhanced user experience.
+
+11.
+SparkSQL datasets have a schema allowing the data to be organized in a tabular format, which provides structural information about the data. In contrast, RDDs are schema-less, where each element is a generic object.
+SparkSQL datasets provide optimized query execution through the Catalyst optimizer and the Tungsten execution engine.
+
+10.
+The map function is a transformation function that applies a given function to each element of the input dataset and produces a new dataset. It can be used to perform computations or transformations on each element of a large-scale dataset in parallel.
+The reduce function is an aggregation function that combines the elements of the input dataset to produce a single result. It can be used to aggregate elements of a large-scale dataset in parallel, such as calculating the sum, average, maximum, or minimum.
+
+8.
+Lambda architecture provides a way to handle both real-time and batch processing in a single architecture. It allows for efficient processing of large amounts of data, as well as the ability to handle real-time data streams.
+
+5.
+不是答案，用于理解
+For example, consider an e-commerce company that wants to perform sales data analysis. They generate a large volume of sales data every day, including order, product, and customer information. In this case, it would be better to use Hive instead of RDBMS. Due to the large and diverse nature of the data, Hive can handle raw data and perform complex queries and analysis without the need for predefining data schemas. Additionally, Hive can integrate with other tools in the Hadoop ecosystem, such as Hadoop Distributed File System (HDFS) and MapReduce, for high-performance large-scale data processing.
+
+On the other hand, if the scenario involves an online transaction processing system that requires real-time interactive queries, such as a bank's core banking system, traditional RDBMS may be more suitable. In such cases, real-time responsiveness is a critical factor, and Hive may not meet the latency requirements for data queries.
+
+3.
+In MapReduce, data is typically stored in a distributed file system, such as HDFS, in its raw format without the need to define the structure or schema in advance. This means that during the data writing phase, there is no strict enforcement of a specific structure or schema. Using the "schema-on-read" approach brings several advantages such as more flexible data processing, higher flexibility and adaptability.

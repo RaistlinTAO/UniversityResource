@@ -40,8 +40,9 @@
 
 ## La Trobe University
 
-- [STM1001 MAKING SENSE OF DATA](STM1001%20MAKING%20SENSE%20OF%20DATA)
+- [CSE1IOO-CSE4IOO Intermediate Object-Oriented Programming](CSE1IOO-CSE4IOO%20Intermediate%20Object-Oriented%20Programming)
 - [CSE3BDC/CSE5BDC - Big Data Management on the Cloud](CSE3BDC-CSE5BDC%20-%20Big%20Data%20Management%20on%20the%20Cloud)
+- [STM1001 MAKING SENSE OF DATA](STM1001%20MAKING%20SENSE%20OF%20DATA)
 
 ## Monash University
 
@@ -70,15 +71,15 @@
 - [BUS2004 - Predictive Analytics](BUS2004%20-%20Predictive%20Analytics)
 - [BUSS6002 Data Science in Business](BUSS6002%20Data%20Science%20in%20Business)
 - [DATA2x01 Data Science, Big Data and Data Variety](DATA2x01%20Data%20Science%2C%20Big%20Data%20and%20Data%20Variety)
-- [SOFT2412 COMP9412 Agile Software Development Practices](SOFT2412%20COMP9412%20Agile%20Software%20Development%20Practices)
 - [DATA3404 - Scalable Data Management](DATA3404%20-%20Scalable%20Data%20Management)
+- [SOFT2412 COMP9412 Agile Software Development Practices](SOFT2412%20COMP9412%20Agile%20Software%20Development%20Practices)
 
 ## Western Sydney University
 
+- [BSBPMG505A Manage Project Quality [23137]](BSBPMG505A%20Manage%20Project%20Quality%20%5B23137%5D)
 - [CPCCBC4003A Select And Prepare A Construction Contract [23139]](CPCCBC4003A%20Select%20And%20Prepare%20A%20Construction%20Contract%20%5B23139%5D)
 - [CPCCBC4004A Identify And Produce Estimated Costs For Building And Construction Projects](CPCCBC4004A%20Identify%20And%20Produce%20Estimated%20Costs%20For%20Building%20And%20Construction%20Projects%20%5B23140%5D)
 - [CPCCBC4010B Apply Structural Principles To Residential Low-rise Constructions [23141]](CPCCBC4010B%20Apply%20Structural%20Principles%20To%20Residential%20Low-rise%20Constructions%20%5B23141%5D)
-- [BSBPMG505A Manage Project Quality [23137]](BSBPMG505A%20Manage%20Project%20Quality%20%5B23137%5D)
 
 ## Xi'an Jiaotong-Liverpool University
 
