@@ -1,0 +1,12 @@
+1. Spark SQL的题目不要用SQL Syntax作答，只记忆dataframe的操作方法
+2. RDD的考点主要集中在filter, 用于筛选
+3. RDD的试题中出现去除重复性的要求 用distinct()
+4. RDD的试题中出现取最大值，或者最小值的时候，在sortBy()之后，用first()取一个。如果反向排序，那么first为最大值，正向排序first为最小值
+
+5. SQL的试题中出现in each, per xxx时，用groupBy(), 同时执行agg()，看试题要求执行sum, avg, min, max等操作
+6. 试题条件中出现条件1 and 条件2时，逻辑符号为&&, or 为 ||
+
+7. 当试题中要求output时，只需要简单的在后面增加一个show()
+比如要求Output ID, age 同时age大于5的表格
+df.select("ID", "Age").where("Age" > 5).show()
+即为满分答案
