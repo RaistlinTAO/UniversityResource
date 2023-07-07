@@ -66,6 +66,11 @@
 
 - [COMP90024 - Cluster and Cloud Computing](COMP90024%20-%20Cluster%20and%20Cloud%20Computing)
 
+## University of Nottingham
+
+- [COMP1036 Computer Fundamentals](COMP1036%20Computer%20Fundamentals)
+- [COMP1047 Systems & Architecture](COMP1047%20Systems%20%26%20Architecture)
+
 ## University of Sydney
 
 - [BUS2004 - Predictive Analytics](BUS2004%20-%20Predictive%20Analytics)
