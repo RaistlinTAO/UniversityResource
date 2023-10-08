@@ -1,0 +1,83 @@
+1 n e s w
+
+2 p(X,Y) 
+
+(p(X) >= 1 && p(X) <= 10) && (p(Y) >= 1 && p(Y) <= 10) 
+
+TRUE 
+
+3. +p(X,Y), +M, -p(X1,Y1)
+
+M nesw
+
+
+switch (M):
+  case n:
+    t(X1) = p(X)
+    t(Y1) = p(Y) - 1
+    break;
+  case e:
+    t(X1) = p(X) + 1
+    t(Y1) = p(Y)
+    break;
+  case s:
+    t(X1) = p(X)
+    t(Y1) = p(Y) + 1
+    break;
+  case w:
+    t(X1) = p(X) - 1
+    t(Y1) = p(Y)
+    break;
+
+//output p(X1, Y1)
+
+
+P2 P1
+% True if p(X1,Y1) is one step in direction M from p(X,Y) (no bounds check)
+
+output (t(X1) == p(X1)) && (t(Y1) == p(Y1))
+
+4. 
+output (t(X1) == p(X1)) && (t(Y1) == p(Y1)) && on_board()
+
+5
+
+L == gridSize()
+
+
+6. Loop
+L = []
+L[0] = [1,1]
+[10, 10]
+
+ailp_grid_size (S [ height  width])
+
+
+Loop 
+ailp_grid_size x 
+ailp_grid_size y
+100
+
+for x 1 , 10:
+   
+   for y 1, 10:
+     y = y +1  M =s 
+     if (y >10) M = e
+     x = x + 1 
+     M = n
+     x 1 
+     y M = w
+     x = x - 1
+
+//p(X, Y) = get_agent_postion(my_agent())
+if (complete(p(X)) && complete(p(Y)) )
+{
+   if(new_pos(P1, m, P2)) {
+     L.push(P2)
+   } 
+   
+   agent_do_moves(my_agent(), L)
+   
+} 
+
+return L [X, Y]
