@@ -1,0 +1,5 @@
+De Morgan’s Law  德摩根定律 对偶律
+
+the Distributive Rule 分配规则
+x and (y or z) = (x and y) or ( x and z)
+x or (y and z) = (x or y) and ( x or z)
