@@ -1,0 +1,753 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+
+    <link href="/favicon.gif" rel="icon" type="image/gif" />
+
+    <!-- load stylesheet defining visual appearance of web pages in the AI+LP course -->
+    <link rel="stylesheet" type="text/css" media="screen" href="/resources/css/ai.css">
+
+    <!-- load JQuery open source library for HTTP communication and to simplify accessing subparts of web page -->
+    <script type="text/javascript" src="/resources/js/jquery-1.10.2.min.js"></script>
+
+    <!-- load AJAX interface to fetch commands from Prolog and return result of their execution back to Prolog -->
+    <script type="text/javascript" src="/resources/js/CommandChannel.js"></script>
+
+  </head>
+  <body>
+    <div id="trace" class="trace"></div>
+    <div id="board" class="board"></div>
+    <div id="controls" class="controls">
+      <form>
+        <input type="button" id="run" value="Run" class="control-button" />
+        <input type="button" id="step" value="Step" class="control-button" />
+        <input type="text" id="steps" value="1" class="control-steps" />
+        <input type="button" id="pause" value="Pause" class="control-button" />
+        <span id="status" class="control-status"></span>
+      </form>
+    </div>
+
+    <!-- load Kinetic open source canvas graphics and animation library -->
+    <script type="text/javascript" src="/resources/js/kinetic-v4.7.4.min.js"></script>
+    <script defer="defer">
+
+var colours = {
+                  "aliceblue": "#f0f8ff",
+                  "antiquewhite": "#faebd7",
+                  "aqua": "#00ffff",
+                  "aquamarine": "#7fffd4",
+                  "azure": "#f0ffff",
+                  "beige": "#f5f5dc",
+                  "bisque": "#ffe4c4",
+                  "black": "#000000",
+                  "blanchedalmond": "#ffebcd",
+                  "blue": "#0000ff",
+                  "blueviolet": "#8a2be2",
+                  "brown": "#a52a2a",
+                  "burlywood": "#deb887",
+                  "cadetblue": "#5f9ea0",
+                  "chartreuse": "#7fff00",
+                  "chocolate": "#d2691e",
+                  "coral": "#ff7f50",
+                  "cornflowerblue": "#6495ed",
+                  "cornsilk": "#fff8dc",
+                  "crimson": "#dc143c",
+                  "cyan": "#00ffff",
+                  "darkblue": "#00008b",
+                  "darkcyan": "#008b8b",
+                  "darkgoldenrod": "#b8860b",
+                  "darkgray": "#a9a9a9",
+                  "darkgreen": "#006400",
+                  "darkkhaki": "#bdb76b",
+                  "darkmagenta": "#8b008b",
+                  "darkolivegreen": "#556b2f",
+                  "darkorange": "#ff8c00",
+                  "darkorchid": "#9932cc",
+                  "darkred": "#8b0000",
+                  "darksalmon": "#e9967a",
+                  "darkseagreen": "#8fbc8f",
+                  "darkslateblue": "#483d8b",
+                  "darkslategray": "#2f4f4f",
+                  "darkturquoise": "#00ced1",
+                  "darkviolet": "#9400d3",
+                  "deeppink": "#ff1493",
+                  "deepskyblue": "#00bfff",
+                  "dimgray": "#696969",
+                  "dodgerblue": "#1e90ff",
+                  "firebrick": "#b22222",
+                  "floralwhite": "#fffaf0",
+                  "forestgreen": "#228b22",
+                  "fuchsia": "#ff00ff",
+                  "gainsboro": "#dcdcdc",
+                  "ghostwhite": "#f8f8ff",
+                  "gold": "#ffd700",
+                  "goldenrod": "#daa520",
+                  "gray": "#808080",
+                  "green": "#008000",
+                  "greenyellow": "#adff2f",
+                  "honeydew": "#f0fff0",
+                  "hotpink": "#ff69b4",
+                  "indianred ": "#cd5c5c",
+                  "indigo ": "#4b0082",
+                  "ivory": "#fffff0",
+                  "khaki": "#f0e68c",
+                  "lavender": "#e6e6fa",
+                  "lavenderblush": "#fff0f5",
+                  "lawngreen": "#7cfc00",
+                  "lemonchiffon": "#fffacd",
+                  "lightblue": "#add8e6",
+                  "lightcoral": "#f08080",
+                  "lightcyan": "#e0ffff",
+                  "lightgoldenrodyellow": "#fafad2",
+                  "lightgrey": "#d3d3d3",
+                  "lightgreen": "#90ee90",
+                  "lightpink": "#ffb6c1",
+                  "lightsalmon": "#ffa07a",
+                  "lightseagreen": "#20b2aa",
+                  "lightskyblue": "#87cefa",
+                  "lightslategray": "#778899",
+                  "lightsteelblue": "#b0c4de",
+                  "lightyellow": "#ffffe0",
+                  "lime": "#00ff00",
+                  "limegreen": "#32cd32",
+                  "linen": "#faf0e6",
+                  "magenta": "#ff00ff",
+                  "maroon": "#800000",
+                  "mediumaquamarine": "#66cdaa",
+                  "mediumblue": "#0000cd",
+                  "mediumorchid": "#ba55d3",
+                  "mediumpurple": "#9370d8",
+                  "mediumseagreen": "#3cb371",
+                  "mediumslateblue": "#7b68ee",
+                  "mediumspringgreen": "#00fa9a",
+                  "mediumturquoise": "#48d1cc",
+                  "mediumvioletred": "#c71585",
+                  "midnightblue": "#191970",
+                  "mintcream": "#f5fffa",
+                  "mistyrose": "#ffe4e1",
+                  "moccasin": "#ffe4b5",
+                  "navajowhite": "#ffdead",
+                  "navy": "#000080",
+                  "oldlace": "#fdf5e6",
+                  "olive": "#808000",
+                  "olivedrab": "#6b8e23",
+                  "orange": "#ffa500",
+                  "orangered": "#ff4500",
+                  "orchid": "#da70d6",
+                  "palegoldenrod": "#eee8aa",
+                  "palegreen": "#98fb98",
+                  "paleturquoise": "#afeeee",
+                  "palevioletred": "#d87093",
+                  "papayawhip": "#ffefd5",
+                  "peachpuff": "#ffdab9",
+                  "peru": "#cd853f",
+                  "pink": "#ffc0cb",
+                  "plum": "#dda0dd",
+                  "powderblue": "#b0e0e6",
+                  "purple": "#800080",
+                  "red": "#ff0000",
+                  "rosybrown": "#bc8f8f",
+                  "royalblue": "#4169e1",
+                  "saddlebrown": "#8b4513",
+                  "salmon": "#fa8072",
+                  "sandybrown": "#f4a460",
+                  "seagreen": "#2e8b57",
+                  "seashell": "#fff5ee",
+                  "sienna": "#a0522d",
+                  "silver": "#c0c0c0",
+                  "skyblue": "#87ceeb",
+                  "slateblue": "#6a5acd",
+                  "slategray": "#708090",
+                  "snow": "#fffafa",
+                  "springgreen": "#00ff7f",
+                  "steelblue": "#4682b4",
+                  "tan": "#d2b48c",
+                  "teal": "#008080",
+                  "thistle": "#d8bfd8",
+                  "tomato": "#ff6347",
+                  "turquoise": "#40e0d0",
+                  "violet": "#ee82ee",
+                  "wheat": "#f5deb3",
+                  "white": "#ffffff",
+                  "whitesmoke": "#f5f5f5",
+                  "yellow": "#ffff00",
+                  "yellowgreen": "#9acd32"
+              };
+
+      var world = {
+          framerate: 100,    // sets speed of animation and command execution (in milliseconds)
+          trace: '',
+          nsquares: 0,
+          squaresize: 0,
+          gridsize: 0,
+          margin: 0,
+          stage: undefined,
+          agentlayer: undefined,
+          gridlayer: undefined,
+          cell_data: undefined,
+          agents: [],
+          x_to_gx: function(x) {
+              return this.margin + (x-1) * this.squaresize;
+          },
+          y_to_gy: function(y) {
+              return this.margin + (y-1) * this.squaresize;
+          },
+          gx_to_x: function(gx) {
+              return 1 + Math.floor((gx - this.margin) / this.squaresize);
+          },
+          gy_to_y: function(gy) {
+              return 1 + Math.floor((gy - this.margin) / this.squaresize);
+          },
+          set_nsquares: function(nsquares) {
+              this.nsquares = nsquares;
+              this.squaresize = Math.floor(Math.min(this.stage.getWidth(), this.stage.getHeight()) / (nsquares+1));
+              this.gridsize = this.squaresize * nsquares; 
+              this.margin = Math.max(20, Math.floor(this.squaresize/2)); // space to leave for the axis labels
+          },
+          draw: function(nsquares) {
+              //
+              //  draw grid of nsquares x nsquares squares sized to fill the board div
+              //
+
+              // size the board according to size specified in css file
+              var boardsize = Math.min($("#board").width(), $("#board").height());
+              this.stage = new Kinetic.Stage({
+                  container: "board",
+                  width: boardsize,
+                  height: boardsize
+              });
+
+              this.set_nsquares(nsquares);
+
+              var gridlayer = new Kinetic.Layer();
+              this.gridlayer = gridlayer;
+
+              // draw background grid lines and co-ordinate numbers
+
+              for (var i=0; i<=this.nsquares; i++) {
+
+                // draw grid lines
+
+                // horizontal lines
+                var hline = new Kinetic.Line({
+                    points: [this.margin+0, this.margin+i*this.squaresize, this.margin+this.gridsize, this.margin+i*this.squaresize],
+                    stroke: '#b0b0b0',
+                    strokeWidth: 1
+                });
+                gridlayer.add(hline);
+                // vertical lines
+                var vline = new Kinetic.Line({
+                    points: [this.margin+i*this.squaresize, this.margin+0, this.margin+i*this.squaresize, this.margin+this.gridsize],
+                    stroke: '#b0b0b0',
+                    strokeWidth: 1
+                });
+                gridlayer.add(vline);
+
+                // draw co-ordinate numbers (text labels)
+
+                if (i == this.nsquares) continue; // no number after last horizontal or vertical line on grid
+
+                var grid_label = function(x,y) {
+                    var text = new Kinetic.Text({
+                        x: x,
+                        y: y,
+                        text: i+1,
+                        fontSize: 10,
+                        fontFamily: 'Helvetica',
+                        fill: '#808080'
+                    });
+                    // once Text is instantiated (not before), its size is known and we can centre align it
+                    text.setOffset({x: text.getWidth()/2, y: text.getHeight()/2});
+                    gridlayer.add(text);
+                };
+                // top horizontal axis numbers
+                grid_label(this.margin + this.squaresize/2 + i*this.squaresize, this.margin/2 + 0);
+                // bottom horizontal axis numbers
+                grid_label(this.margin + this.squaresize/2 + i*this.squaresize, this.margin + this.margin/2 + this.gridsize);
+                // top vertical axis numbers
+                grid_label(this.margin/2 + 0, this.margin + this.squaresize/2 + i*this.squaresize);
+                // bottom vertical axis numbers
+                grid_label(this.margin + this.margin/2 + this.gridsize, this.margin + this.squaresize/2 + i*this.squaresize);
+              }
+
+              this.stage.add(gridlayer);
+
+          },// draw
+          initcells: function(cells) {
+              var world = this;
+              world.cell_data = [];
+              var colour = "white";
+              var gridlayer = world.gridlayer;
+              for (var x=1; x<=world.nsquares; x++) {
+                  world.cell_data[x] = [];
+                  for (var y=1; y<=world.nsquares; y++) {
+                      var obj = new Kinetic.Rect({
+                          x: world.x_to_gx(x),
+                          y: world.y_to_gy(y),
+                          width: world.squaresize,
+                          height: world.squaresize,
+                          fill: world.parseColour(colour),
+                          stroke: 'black',
+                          strokeWidth: 1,
+                      });
+                      gridlayer.add(obj);
+                      world.cell_data[x][y] = {"colour": colour, "graphic": obj};
+                  }
+              }
+              for(var i=0; i<cells.length; i++) {
+                  var cell = cells[i];
+                  var colour = cell[0];
+                  var x0 = cell[1];
+                  var y0 = cell[2];
+                  var x1 = cell[3];
+                  var y1 = cell[4];
+                  for(var x=x0; x<=x1; x++) {
+                      for(var y=y0; y<=y1; y++) {
+                          var c = world.cell_data[x][y];
+                          // update the model
+                          c.colour = colour;
+                          if (c.graphic == undefined) {
+                              console.log("Cell out of range: " + x + ", " + y);
+                          }
+                          c.graphic.setFill(world.parseColour(colour));
+                      }
+                  }
+              }
+              this.stage.draw(gridlayer);
+          },// initcells
+          initagents: function(agentspecs) {
+              var world = this;
+              
+              CommandChannel.resetAgents();
+
+              var ix = (world.agents.length > 0) ? 1 : 0;   // preserve god agent if it exists
+              if (ix > 0) {
+                  world.agents = [ world.agents[0] ];
+              }
+
+              world.agentlayer = new Kinetic.Layer();
+              CommandChannel.Agent.prototype.getX = function() {
+                  return world.gx_to_x(this.properties.graphic.getX());
+              };
+              CommandChannel.Agent.prototype.getY = function() {
+                  return world.gy_to_y(this.properties.graphic.getY());
+              };
+              for(var i=0; i<agentspecs.length; i++) {
+                  var agentspec = agentspecs[i];
+                  var agent = new CommandChannel.Agent(
+                      agentspec[0],     // id
+                      world.commands,   // object of commandName:function pairs
+                      {                 // properties
+                          sides: agentspec[1],
+                          colour: agentspec[2],
+                          x: agentspec[3],
+                          y: agentspec[4],
+                          graphic: undefined
+                      }
+                  );
+                  world.agents[ix+i] = agent;
+                  var obj = new Kinetic.RegularPolygon({
+                      x: world.margin + (agent.properties.x - 1)*world.squaresize,
+                      y: world.margin + (agent.properties.y - 1)*world.squaresize,
+                      targetx: undefined,
+                      targety: undefined,
+                      sides: agent.properties.sides,
+                      radius: world.squaresize/2.5,
+                      offset: -world.squaresize/2,
+                      fill: world.parseColour(agent.properties.colour),
+                      stroke: 'black',
+                      strokeWidth: 1
+                  });
+                  world.agentlayer.add(obj);
+                  agent.properties.graphic = obj;
+              }
+              world.stage.add(world.agentlayer);
+          },//initagents
+          collision: function(obj1, obj2) {
+              //
+              // returns true if obj1 overlaps with obj2
+              //
+              // ensure both objects are collidable
+              if (obj1.collidable !== true || obj2.collidable !== true) {
+                  return false;
+              }
+              // midpoint for obj1
+              //var r1 = Math.max(obj1.getWidth(), obj1.getHeight()) / 2;
+              var r1 = world.squaresize/2.5;
+              var x1 = obj1.getX();
+              var y1 = obj1.getY();
+              // midpoint for obj2
+              //var r2 = Math.max(obj2.getWidth(), obj2.getHeight()) / 2;
+              var r2 = world.squaresize/2.5;
+              var x2 = obj2.getX();
+              var y2 = obj2.getY();
+              // get distance between midpoints
+              var dist = Math.floor(Math.sqrt(Math.pow(x1-x2,2) + Math.pow(y1-y2,2)));
+    //          console.log(dist + " vs " + r1);
+              // collision if within their radii
+              return (dist < (r1 + r2));
+          },//collision
+          animate: function() {
+              // see if any agents have a target location to animate towards
+              if (world.agentlayer == undefined) {
+                  return;
+              }
+              var agents = world.agents;
+              var updated = false;
+              for(var i=0; i<agents.length; i++) {
+                  var agent = agents[i];
+                  var obj = agent.properties.graphic;
+                  if (obj === undefined) {
+                      continue;
+                  }
+                  if (obj.tooltip !== undefined) {
+                      // time tooltips out
+                      if (obj.tooltipTimer > 0) {
+                          obj.tooltipTimer--;
+                          var fadeThreshold = 30;
+                          if (obj.tooltipTimer <= fadeThreshold) {
+                              // fade tooltip out
+                              updated = true;
+                              obj.tooltip.setOpacity(0.8 * obj.tooltipTimer/fadeThreshold);
+                          }
+                          if (obj.tooltipTimer == 0) {
+                              // remove tooltip
+                              updated = true;
+                              obj.tooltip.remove();
+                              obj.tooltip = undefined;
+                          }
+                      }
+                  }
+                  if (obj.targetx != undefined && obj.targety != undefined) {
+                      // animate agent along its path
+                      updated = true;
+                      var fgx = obj.fromx;
+                      var fgy = obj.fromy;
+                      var tgx = obj.targetx;
+                      var tgy = obj.targety;
+                      var stop = false;
+                      if (obj.step >= obj.noofsteps) {
+                          obj.setX(tgx);
+                          obj.setY(tgy);
+                          stop = true;
+                      } else {
+                          // move closer to target point
+                          var oldx = obj.getX();
+                          var oldy = obj.getY();
+                          obj.step++;
+                          obj.setX(Math.floor(fgx + ((tgx-fgx)*obj.step / obj.noofsteps)));
+                          obj.setY(Math.floor(fgy + ((tgy-fgy)*obj.step / obj.noofsteps)));
+                          // collision detection (with other agents)
+                          for(var j=0; j<agents.length; j++) {
+                              if (i !== j) {
+                                  var a2 = agents[j];
+                                  var obj2 = a2.properties.graphic;
+                                  if (obj2 === undefined) {
+                                      continue;
+                                  }
+                                  if (world.collision(obj, obj2)) {
+                                      //stop = true;
+                                      // fly back to original position
+                                      var tmpx = obj.fromx;
+                                      var tmpy = obj.fromy;
+                                      obj.fromx = obj.targetx;
+                                      obj.fromy = obj.targety;
+                                      obj.targetx = tmpx;
+                                      obj.targety = tmpy;
+                                      obj.collidable = false;
+                                      agent.commands.say(["Sorry!"]);
+                                      a2.commands.say(["Ouch!"]);
+                                      break;
+                                  }
+                              }
+                          }
+                          if (stop) {
+                              obj.setX(oldx);
+                              obj.setY(oldy);
+                             // obj.targetx = (world.x_to_gx(world.gx_to_x(oldx)));
+                             // obj.targety = (world.y_to_gy(world.gy_to_y(oldy)));
+                             // stop = false;
+                          }
+                      }
+                      if (stop) {
+                          obj.step = obj.noofsteps;
+                          obj.targetx = undefined;
+                          obj.targety = undefined;
+                      }
+                      if (obj.tooltip !== undefined) {
+                          // move tooltip along with agent
+                          obj.tooltip.setX(Math.floor(obj.getX() + world.squaresize/2));
+                          obj.tooltip.setY(Math.floor(obj.getY() + world.squaresize/4));
+                      }
+                  }
+              }
+              if (updated) {
+                  world.agentlayer.draw();
+              }
+          },//animate
+          commands: {
+              tick: function(_args) {
+                  //
+                  // tick() - Command issued automatically every command execution cycle.
+                  //
+                  controls.status();
+                  return({})
+              },
+              console: function(args) {
+                  //
+                  // console(message) - Append message string to bottom of the "console" html.
+                  //
+                  world.trace = world.trace + '<strong>' + CommandChannel.getInvocation() + ' ' + this.id + '</strong>: ' + args[0] + '<br/>';
+                  $("#trace").html(world.trace);
+                  return({});
+              },
+              reset: function(args) {
+                  //
+                  // reset(state) - Initialise the board graphic, world model and agents to specified state.
+                  //
+                  var initialstate = args[0];
+                  world.draw(initialstate.grid_size);
+                  world.initcells(initialstate.cells);
+                  world.initagents(initialstate.agents);
+                  // start animation event clock
+                  if (world.anim !== undefined) {
+                      world.anim.stop();
+                      world.anim = undefined;
+                  }
+                  world.anim = new Kinetic.Animation(function(frame) {
+                      // var time = frame.time,
+                      //     timeDiff = frame.timeDiff,
+                      //     frameRate = frame.frameRate;
+                      world.animate();
+                  }, world.agentlayer);
+                  world.anim.start();
+                  world.trace = ""; 
+                  $("#trace").html(world.trace);
+                  return({});
+              },
+              go: function(args) {
+                  //
+                  // go(dir), where dir is one of "n", "e", "s", "w"
+                  //
+                  // Tries to move agent one square in the specified direction.
+                  // Move will return {fail:true} if the move is illegal.
+                  //
+                  var agent = this;
+                  var oldx = agent.getX();
+                  var oldy = agent.getY();
+                  var deltas = {n:[0,-1], e:[1,0], s:[0,1], w:[-1,0]};
+                  var dir = args[0];
+                  var delta = deltas[dir];
+                  if (delta == undefined) { delta = [0,0]; }
+                  var x = oldx + delta[0];
+                  var y = oldy + delta[1];
+                  if (x < 1 || x > world.nsquares || y < 1 || y > world.nsquares) {
+                      return({fail:true});
+                  }
+                  var dist = Math.sqrt(Math.pow(x-oldx, 2) + Math.pow(y-oldy, 2));
+                  var obj = agent.properties.graphic;
+                  obj.fromx = obj.getX();
+                  obj.fromy = obj.getY();
+//                  obj.noofsteps = Math.floor( Math.min(50 * dist / Math.pow(world.nsquares, 2), (world.framerate||1000)/50/2));
+//                  obj.noofsteps = Math.floor(world.framerate / 10);
+                  obj.noofsteps = 50;
+                  obj.step = 0;
+                  obj.targetx = world.x_to_gx(x);
+                  obj.targety = world.y_to_gy(y);
+                  obj.collidable = true;
+                  return({old:{"x": oldx, "y":oldy}, "new":{"x": x, "y":y}});
+              },
+              move: function(args) {
+                  //
+                  // move(x,y) - Moves to any board position (without checking legality).
+                  //
+                  var agent = this;
+                  var oldx = agent.getX();
+                  var oldy = agent.getY();
+                  var x = args[0];
+                  var y = args[1];
+                  var dist = Math.sqrt(Math.pow(x-oldx, 2) + Math.pow(y-oldy, 2));
+                  var obj = agent.properties.graphic;
+                  obj.fromx = obj.getX();
+                  obj.fromy = obj.getY();
+                  obj.noofsteps = 60 * dist / Math.floor(Math.sqrt(world.nsquares*world.nsquares));
+                  obj.step = 0;
+                  obj.targetx = world.x_to_gx(x);
+                  obj.targety = world.y_to_gy(y);
+                  obj.collidable = false; //Property cancelled to prevent glitches
+                  return({old:{"x": oldx, "y":oldy}, "new":{"x": x, "y":y}});
+              },
+              leave: function(args){
+                  var agent = this;
+                  var obj = agent.properties.graphic;
+                  obj.collidable = false;
+                  obj.hide();
+              },
+              colour: function(args) {
+                  //
+                  // colour(x,y,colour) - Set the colour of the specified board square.
+                  //  where 'colour' is one of:
+                  //      rgb(R,G,B)    where R,G,B are 0..255
+                  //      #rrggbb       where rr,gg,bb are hex 00..ff
+                  //      colourname    chosen from the list of colours names in parseColour()
+                  //      n%            sets lightness of colour from where n is 0..100
+                  //      lighter       reduces the brightness
+                  //      darker        increases the brightness
+                  //
+                  var x = args[0];
+                  var y = args[1];
+                  var colour = args[2];
+                  world.cell_data[x][y]["colour"] = colour;
+                  world.cell_data[x][y]["graphic"].setFill(
+                      world.parseColour(colour, world.cell_data[x][y]["graphic"].getFill() )
+                  );
+                //   world.gridlayer.draw();
+                  return({});
+              },
+              redraw: function(args){
+                  world.gridlayer.draw();
+              },
+              say: function(args) {
+                  //
+                  // say(message) - Display a speech balloon above the agent for a few seconds.
+                  //
+                  var agent = this;
+                  var message = args[0];
+                  var obj = agent.properties.graphic;
+                  if (obj.tooltip !== undefined) {
+                      obj.tooltip.remove();
+                      obj.tooltip = undefined;
+                      world.agentlayer.draw();
+                  }
+                  var gx = obj.getX();
+                  var gy = obj.getY();
+                  var tooltip = new Kinetic.Label({
+                    x: Math.floor(gx + world.squaresize/2),
+                    y: Math.floor(gy + world.squaresize/4),
+                    opacity: 0.8
+                  });
+                  tooltip.add(new Kinetic.Tag({
+                      fill: 'black',
+                      pointerDirection: 'down',
+                      pointerWidth: 10,
+                      pointerHeight: 10,
+                      lineJoin: 'round',
+                      shadowColor: 'black',
+                      shadowBlur: 10,
+                      shadowOffset: 10,
+                      shadowOpacity: 0.5
+                  }));      
+                  tooltip.add(new Kinetic.Text({
+                      text: message,
+                      fontFamily: 'Calibri',
+                      fontSize: 18,
+                      padding: 5,
+                      fill: 'white'
+                  }));
+                  world.agentlayer.add(tooltip);
+                  obj.tooltip = tooltip;
+                  obj.tooltipTimer = 200;
+                  world.agentlayer.draw();
+                  return({});
+              }
+          },
+          parseColour: function(colour, original_colour) {      //original_colour is optional
+              if (colour.length >= 2 && colour.charAt(colour.length - 1) === "%") {
+                  var percentage = 0 + colour.substring(0, colour.length - 2);
+                  colour = world.shadeColor(original_colour, percentage);
+              }
+              else if (colour === "lighter") {
+                  colour = world.shadeColor(original_colour, 10);
+              }
+              else if (colour === "darker") {
+                  colour = world.shadeColor(original_colour, -10);
+              }
+              else if (colour.charAt(0) !== "#" && 
+                  colour.substring(0,4) !== "rgb(") {
+                  var rgbstr = colours[colour.toLowerCase()];
+                  if (typeof rgbstr != 'undefined') {
+                      colour = rgbstr;
+                  }
+              }
+              return colour;
+          },// parseColour
+          shadeColor: function(colour, percent) {   
+              var num = parseInt(colour.slice(1),16), amt = Math.round(2.55 * percent), R = (num >> 16) + amt, G = (num >> 8 & 0x00FF) + amt, B = (num & 0x0000FF) + amt;
+              return "#" + (0x1000000 + (R<255?R<1?0:R:255)*0x10000 + (G<255?G<1?0:G:255)*0x100 + (B<255?B<1?0:B:255)).toString(16).slice(1);
+          }
+      }// world
+
+      // add on an agent (without graphic) to handle global actions on the world
+      world.agents.push(new CommandChannel.Agent("god", {
+              "tick": world.commands.tick,
+              "console": world.commands.console,
+              "reset": world.commands.reset,
+              "redraw": world.commands.redraw
+          }, 
+          {})
+      );
+
+      // start polling web server for commands
+      CommandChannel.open({
+          // repeat: 3,
+          interval: world.framerate
+      });
+
+      var controls = {
+          // cache object references
+          runButton: document.getElementById('run'),
+          pauseButton: document.getElementById('pause'),
+          stepButton: document.getElementById('step'),
+          stepsTextbox: document.getElementById('steps'),
+          statusText: $('#status'),
+          // current state
+          state: "Ready",
+          // define a handler for each button type
+          run: function() {
+              controls.runButton.disabled = true;
+              controls.pauseButton.disabled = false;
+              controls.stepButton.disabled = true;
+              controls.stepsTextbox.disabled = true;
+              controls.status("Running");
+              CommandChannel.run();
+          },
+          pause: function() {
+              controls.runButton.disabled = false;
+              controls.pauseButton.disabled = true;
+              controls.stepButton.disabled = false;
+              controls.stepsTextbox.disabled = false;
+              controls.status("Paused");
+              CommandChannel.pause();
+          },
+          step: function() {
+              controls.runButton.disabled = false;
+              controls.pauseButton.disabled = true;
+              controls.stepButton.disabled = false;
+              controls.stepsTextbox.disabled = false;
+              controls.status("Paused");
+              var repeats = parseInt(controls.stepsTextbox.value);
+              repeats = (repeats === NaN) ? 1 : repeats;
+              controls.stepsTextbox.value = repeats;
+              CommandChannel.run(repeats);
+          },
+          status: function(state) {
+              if (state !== undefined) {
+                  controls.state = state;
+              } else {
+                  state = controls.state;
+              }
+              controls.statusText.text(CommandChannel.getInvocation() + ": " + state);
+          }
+      };
+
+      // bind control functions to the buttons
+      controls.runButton.addEventListener('click', controls.run, false);
+      controls.pauseButton.addEventListener('click', controls.pause, false);
+      controls.stepButton.addEventListener('click', controls.step, false);
+
+      // set initial state of controls
+      controls.pause();
+
+    </script>
+  </body>
+</html>

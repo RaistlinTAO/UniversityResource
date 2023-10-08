@@ -1,0 +1,51 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	font-family: "Lato","proxima-nova","Helvetica Neue",Arial,"sans-serif";
+	font-size: 12pt;
+}
+
+/* You can change the size of the board and trace here */
+.board {
+	width: 600px; 
+	height: 600px; 
+}
+
+.trace {
+	float: right; 
+	width: 200px; 
+	height: 600px; 
+	background: rgb(240,240,240); 
+	word-wrap:break-word; /*this is commented out for assignment 2*/
+	font-family: Courier; 
+	font-size: 8pt;
+	margin: 8px;
+	padding: 8px;
+}
+
+input[type=text]:disabled {
+	color: graytext;
+}
+
+.controls {
+	padding: 20px;
+}
+
+.control-button {
+	font-style: bold;
+}
+
+.control-steps {
+	width: 30px;
+	color: black;
+}
+
+.control-status {
+	width: 200px;
+	height: 20px;
+	font-family: Arial; 
+	font-size: 10pt;
+	margin: 0;
+	padding: 0;
+	padding-left: 20px;
+}
