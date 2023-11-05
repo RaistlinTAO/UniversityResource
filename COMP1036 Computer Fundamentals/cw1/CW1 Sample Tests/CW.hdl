@@ -20,30 +20,23 @@ CHIP    CW{
     overflow;
     PARTS:    
 
-    // CHECK Priority
-
+    // CHECK Priority For Output
     // Eq to 0 - 0 0
-    Or(a=priority[0], b=priority[1], out=notPriority0);
-    Not(in=notPriority0, out=isEqual0);
-
+    Or(a=priority[0], b=priority[1], out=OrPriority0);
+    Not(in=OrPriority0, out=isEqual0);
     // Eq to 1 - 0 1
     Not(in=priority[1], out=notPriority1);
     And(a=notPriority1, b=priority[0], out=isEqual1);
-
     // Eq to 2 - 1 0
     Not(in=priority[0], out=notPriority2);
     And(a=notPriority2, b=priority[1], out=isEqual2);
-
-    // Eq to 3
+    // Eq to 3 - 1 1
     And(a=priority[0], b=priority[1], out=isEqual3);
 
-    // TASK 1
+    // CONTROL Out - Only Output ID / MARK When priority = 0 and Probe = 1
+    And(a=isEqual0, b=probe, out=onlyOutIDMark);
 
-    // Load Logic without sl
-    DMux4Way(in=load, sel=address, a=id0, b=id1, c=id2, d=id3);
-    DMux4Way(in=load, sel=address, a=mk0, b=mk1, c=mk2, d=mk3);
-
-    // 4 registers for storing ID and 4 registers for storing mark
+    // DEFINE 4 registers for storing ID and 4 registers for storing mark
     Register(in=inID, load=id0, out=oi0);
     Register(in=inID, load=id1, out=oi1);
     Register(in=inID, load=id2, out=oi2);
@@ -54,15 +47,16 @@ CHIP    CW{
     Register(in=inMARK, load=mk2, out=om2);
     Register(in=inMARK, load=mk3, out=om3);
 
-   
+    // Load Logic
+    DMux4Way(in=load, sel=address, a=id0, b=id1, c=id2, d=id3);
+    DMux4Way(in=load, sel=address, a=mk0, b=mk1, c=mk2, d=mk3);
 
-    Mux4Way16(a=oi0, b=oi1, c=oi2, d=oi3, sel=address, out=r1);
-    Mux4Way16(a=om0, b=om1, c=om2, d=om3, sel=address, out=r2);
+    // Out Logic
+    Mux4Way16(a=oi0, b=oi1, c=oi2, d=oi3, sel=address, out=o1);
+    Mux4Way16(a=om0, b=om1, c=om2, d=om3, sel=address, out=o2);
 
-    And(a=isEqual0, b=probe, out=onlyPrintRam);
-
-    Mux16(a=false, b=r1, sel=onlyPrintRam, out=outID);
-    Mux16(a=false, b=r2, sel=onlyPrintRam, out=outMARK);
+    Mux16(a=false, b=o1, sel=onlyOutIDMark, out=outID);
+    Mux16(a=false, b=o2, sel=onlyOutIDMark, out=outMARK);
 
     //TASK 2
     Not(in=sl, out=isNotSL);
@@ -71,29 +65,21 @@ CHIP    CW{
     //SAM
 
     
-
-    // Only when both load and sl are true
+    // SUM Marks
+    Add16(a=om0, b=om1, out=sumR01);
+    Add16(a=sumR01, b=om2, out=sumR012);
+    Add16(a=sumR012, b=om3, out=sumR0123);
+    // OVERFLOW Check
     
-    //TASK 3
-   
+    Mux16(a=false, b=sumR0123, sel=isEqual1, out=sum);
 
-    Add16(a=om0, b=om1, out=sumInput1);
-    Add16(a=sumInput1, b=om2, out=sumInput2);
-    Add16(a=sumInput2, b=om3, out=sumInput3);
-    //Not16(in=sumInput3, out=notSum);
-    //Or8Way(in=notSum, out=overflowCheck);
+    // SIMPLE AVERAGE - DIVIDE BY 4 (Shift Right 2 times)
+    ShiftRight(in=sumR0123, out=sumR0123D2);
+    ShiftRight(in=sumR0123D2, out=sumR0123D4);
+
+    // OUT AVERAGE
+    Mux16(a=false, b=sumR0123D4, sel=isEqual2, out=avg);
+
+    // REAL AVERAGE
     
-
-    Mux16(a=false, b=sumInput3, sel=isEqual1, out=sum);
-
-    //TASK 4
-    ShiftRight(in=sumInput3, out=tempV );
-    ShiftRight(in=tempV, out=avgR );
-    Mux16(a=false, b=avgR, sel=isEqual2, out=avg);
-
-    //TASK 5
-
-    if (isEqual2) {
-        
-    }
 }
