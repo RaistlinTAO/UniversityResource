@@ -1,0 +1,25 @@
+// File name: projects/02/ShiftRight.hdl
+
+// Shifts 'in' one bite to the right and return the result.
+CHIP ShiftRight{
+     IN in[16];
+     OUT out[16];
+     
+     PARTS:
+     Or(a=false, b=in[15], out=out[15]);
+     Or(a=false, b=in[15], out=out[14]);
+     Or(a=false, b=in[14], out=out[13]);
+     Or(a=false, b=in[13], out=out[12]);
+     Or(a=false, b=in[12], out=out[11]);
+     Or(a=false, b=in[11], out=out[10]);
+     Or(a=false, b=in[10], out=out[9]);
+     Or(a=false, b=in[9], out=out[8]);
+     Or(a=false, b=in[8], out=out[7]);
+     Or(a=false, b=in[7], out=out[6]);
+     Or(a=false, b=in[6], out=out[5]);
+     Or(a=false, b=in[5], out=out[4]);
+     Or(a=false, b=in[4], out=out[3]);
+     Or(a=false, b=in[3], out=out[2]);
+     Or(a=false, b=in[2], out=out[1]);
+     Or(a=false, b=in[1], out=out[0]);
+}

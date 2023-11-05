@@ -1,0 +1,23 @@
+// scyxxx 2051xxxx YourName
+// Filename: CW.hdl
+/*
+ * 
+ * it is the main chip to finish the cw
+*/
+CHIP CW{
+ IN 
+ inID[16],inMARK[16],
+ load,
+ probe,
+ address[2],
+ sl,
+ priority[2];
+ OUT
+ outID[16],
+ outMARK[16],
+ sum[16],
+ avg[16],
+ overflow;
+ PARTS: 
+ // write your code here.
+}

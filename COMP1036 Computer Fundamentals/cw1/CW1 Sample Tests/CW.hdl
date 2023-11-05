@@ -1,0 +1,99 @@
+//    scyxxx    2051xxxx    YourName
+//    Filename:    CW.hdl
+/*
+    *    
+    *    it    is    the    main    chip    to    finish    the    cw
+*/
+CHIP    CW{
+    IN    
+    inID[16],inMARK[16],
+    load,
+    probe,
+    address[2],
+    sl,
+    priority[2];
+    OUT
+    outID[16],
+    outMARK[16],
+    sum[16],
+    avg[16],
+    overflow;
+    PARTS:    
+
+    // CHECK Priority
+
+    // Eq to 0 - 0 0
+    Or(a=priority[0], b=priority[1], out=notPriority0);
+    Not(in=notPriority0, out=isEqual0);
+
+    // Eq to 1 - 0 1
+    Not(in=priority[1], out=notPriority1);
+    And(a=notPriority1, b=priority[0], out=isEqual1);
+
+    // Eq to 2 - 1 0
+    Not(in=priority[0], out=notPriority2);
+    And(a=notPriority2, b=priority[1], out=isEqual2);
+
+    // Eq to 3
+    And(a=priority[0], b=priority[1], out=isEqual3);
+
+    // TASK 1
+
+    // Load Logic without sl
+    DMux4Way(in=load, sel=address, a=id0, b=id1, c=id2, d=id3);
+    DMux4Way(in=load, sel=address, a=mk0, b=mk1, c=mk2, d=mk3);
+
+    // 4 registers for storing ID and 4 registers for storing mark
+    Register(in=inID, load=id0, out=oi0);
+    Register(in=inID, load=id1, out=oi1);
+    Register(in=inID, load=id2, out=oi2);
+    Register(in=inID, load=id3, out=oi3);
+
+    Register(in=inMARK, load=mk0, out=om0);
+    Register(in=inMARK, load=mk1, out=om1);
+    Register(in=inMARK, load=mk2, out=om2);
+    Register(in=inMARK, load=mk3, out=om3);
+
+   
+
+    Mux4Way16(a=oi0, b=oi1, c=oi2, d=oi3, sel=address, out=r1);
+    Mux4Way16(a=om0, b=om1, c=om2, d=om3, sel=address, out=r2);
+
+    And(a=isEqual0, b=probe, out=onlyPrintRam);
+
+    Mux16(a=false, b=r1, sel=onlyPrintRam, out=outID);
+    Mux16(a=false, b=r2, sel=onlyPrintRam, out=outMARK);
+
+    //TASK 2
+    Not(in=sl, out=isNotSL);
+    And(a=load, b=isNotSL, out=isOnlyLoad);
+    And(a=load, b=sl, out=isSLLoad);
+    //SAM
+
+    
+
+    // Only when both load and sl are true
+    
+    //TASK 3
+   
+
+    Add16(a=om0, b=om1, out=sumInput1);
+    Add16(a=sumInput1, b=om2, out=sumInput2);
+    Add16(a=sumInput2, b=om3, out=sumInput3);
+    //Not16(in=sumInput3, out=notSum);
+    //Or8Way(in=notSum, out=overflowCheck);
+    
+
+    Mux16(a=false, b=sumInput3, sel=isEqual1, out=sum);
+
+    //TASK 4
+    ShiftRight(in=sumInput3, out=tempV );
+    ShiftRight(in=tempV, out=avgR );
+    Mux16(a=false, b=avgR, sel=isEqual2, out=avg);
+
+    //TASK 5
+
+    if (isEqual2) {
+        
+    }
+}
