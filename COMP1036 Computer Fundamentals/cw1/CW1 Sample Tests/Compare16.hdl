@@ -1,0 +1,45 @@
+CHIP Compare16 {
+    IN
+    a[16], b[16];
+    OUT
+    out;
+    PARTS:
+    Xor(a=a[0], b=b[0], out=Xor0);
+    Xor(a=a[1], b=b[1], out=Xor1);
+    Xor(a=a[2], b=b[2], out=Xor2);
+    Xor(a=a[3], b=b[3], out=Xor3);
+    Xor(a=a[4], b=b[4], out=Xor4);
+    Xor(a=a[5], b=b[5], out=Xor5);
+    Xor(a=a[6], b=b[6], out=Xor6);
+    Xor(a=a[7], b=b[7], out=Xor7);
+    Xor(a=a[8], b=b[8], out=Xor8);
+    Xor(a=a[9], b=b[9], out=Xor9);
+    Xor(a=a[10], b=b[10], out=Xor10);
+    Xor(a=a[11], b=b[11], out=Xor11);
+    Xor(a=a[12], b=b[12], out=Xor12);
+    Xor(a=a[13], b=b[13], out=Xor13);
+    Xor(a=a[14], b=b[14], out=Xor14);
+    Xor(a=a[15], b=b[15], out=Xor15);
+
+    //Use Or8Way will be better
+    Or(a=Xor0, b=Xor1, out=or1);
+    Or(a=Xor2, b=Xor3, out=or2);
+    Or(a=Xor4, b=Xor5, out=or3);
+    Or(a=Xor6, b=Xor7, out=or4);
+    Or(a=Xor8, b=Xor9, out=or5);
+    Or(a=Xor10, b=Xor11, out=or6);
+    Or(a=Xor12, b=Xor13, out=or7);
+    Or(a=Xor14, b=Xor15, out=or8);
+
+    Or(a=or1, b=or2, out=or9);
+    Or(a=or3, b=or4, out=or10);
+    Or(a=or5, b=or6, out=or11);
+    Or(a=or7, b=or8, out=or12);
+
+
+    Or(a=or9, b=or10, out=or13);
+    Or(a=or11, b=or12, out=or14);
+
+    Or(a=or13, b=or14, out=or15);
+    Not(in=or15, out=out);
+}

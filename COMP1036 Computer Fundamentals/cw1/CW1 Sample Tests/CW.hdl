@@ -6,80 +6,145 @@
 */
 CHIP    CW{
     IN    
-    inID[16],inMARK[16],
-    load,
-    probe,
-    address[2],
-    sl,
-    priority[2];
+        inID[16],inMARK[16],
+        load,
+        probe,
+        address[2],
+        sl,
+        priority[2];
     OUT
-    outID[16],
-    outMARK[16],
-    sum[16],
-    avg[16],
-    overflow;
+        outID[16],
+        outMARK[16],
+        sum[16],
+        avg[16],
+        overflow;
+
     PARTS:    
 
-    // CHECK Priority For Output
-    // Eq to 0 - 0 0
-    Or(a=priority[0], b=priority[1], out=OrPriority0);
-    Not(in=OrPriority0, out=isEqual0);
-    // Eq to 1 - 0 1
-    Not(in=priority[1], out=notPriority1);
-    And(a=notPriority1, b=priority[0], out=isEqual1);
-    // Eq to 2 - 1 0
-    Not(in=priority[0], out=notPriority2);
-    And(a=notPriority2, b=priority[1], out=isEqual2);
-    // Eq to 3 - 1 1
-    And(a=priority[0], b=priority[1], out=isEqual3);
+        // CHECK Priority For Output
+        // Eq to 0 - 0 0
+        Or(a=priority[0], b=priority[1], out=OrPriority0);
+        Not(in=OrPriority0, out=isEqual0);
+        // Eq to 1 - 0 1
+        Not(in=priority[1], out=notPriority1);
+        And(a=notPriority1, b=priority[0], out=isEqual1);
+        // Eq to 2 - 1 0
+        Not(in=priority[0], out=notPriority2);
+        And(a=notPriority2, b=priority[1], out=isEqual2);
+        // Eq to 3 - 1 1
+        And(a=priority[0], b=priority[1], out=isEqual3);
 
-    // CONTROL Out - Only Output ID / MARK When priority = 0 and Probe = 1
-    And(a=isEqual0, b=probe, out=onlyOutIDMark);
+        // CONTROL Out - Only Output ID / MARK When priority = 0 and Probe = 1
+        // TASK 2: Or When sl = 1, when sl = 0, the output should not be affected.
+        And(a=isEqual0, b=probe, out=onlyOutIDMark);
 
-    // DEFINE 4 registers for storing ID and 4 registers for storing mark
-    Register(in=inID, load=id0, out=oi0);
-    Register(in=inID, load=id1, out=oi1);
-    Register(in=inID, load=id2, out=oi2);
-    Register(in=inID, load=id3, out=oi3);
+        // Load Logic
+        DMux4Way(in=load, sel=address, a=id0, b=id1, c=id2, d=id3);
+        DMux4Way(in=load, sel=address, a=mk0, b=mk1, c=mk2, d=mk3);
 
-    Register(in=inMARK, load=mk0, out=om0);
-    Register(in=inMARK, load=mk1, out=om1);
-    Register(in=inMARK, load=mk2, out=om2);
-    Register(in=inMARK, load=mk3, out=om3);
+        // DEFINE 4 registers for storing ID and 4 registers for storing mark
+        Register(in=inID, load=samID0, out=oi0);
+        Register(in=inID, load=samID1, out=oi1);
+        Register(in=inID, load=samID2, out=oi2);
+        Register(in=inID, load=samID3, out=oi3);
 
-    // Load Logic
-    DMux4Way(in=load, sel=address, a=id0, b=id1, c=id2, d=id3);
-    DMux4Way(in=load, sel=address, a=mk0, b=mk1, c=mk2, d=mk3);
+        Register(in=inMARK, load=samMK0, out=om0);
+        Register(in=inMARK, load=samMK1, out=om1);
+        Register(in=inMARK, load=samMK2, out=om2);
+        Register(in=inMARK, load=samMK3, out=om3);
 
-    // Out Logic
-    Mux4Way16(a=oi0, b=oi1, c=oi2, d=oi3, sel=address, out=o1);
-    Mux4Way16(a=om0, b=om1, c=om2, d=om3, sel=address, out=o2);
+        // Out Logic
+        Mux4Way16(a=oi0, b=oi1, c=oi2, d=oi3, sel=address, out=o1);
+        Mux4Way16(a=om0, b=om1, c=om2, d=om3, sel=address, out=o2);
 
-    Mux16(a=false, b=o1, sel=onlyOutIDMark, out=outID);
-    Mux16(a=false, b=o2, sel=onlyOutIDMark, out=outMARK);
+        // SEQUENTIAL PROBE Logic
+        // IF sl = 0, the o1/o2 should replaced with inID's mark
+        And(a=sl, b=probe, out=isSLProbe);
 
-    //TASK 2
-    Not(in=sl, out=isNotSL);
-    And(a=load, b=isNotSL, out=isOnlyLoad);
-    And(a=load, b=sl, out=isSLLoad);
-    //SAM
+        // Just return inID if isSLProbe
+        Mux16(a=o1, b=inID, sel=isSLProbe, out=oFinalId);
 
+        // Check all registers for same ID
+        // For example, if input ID equals ID stored in register 0 (oi0), then isQueryR0 is true
+        Compare16(a=inID, b=oi0, out=isQueryR0);
+        Compare16(a=inID, b=oi1, out=isQueryR1);
+        Compare16(a=inID, b=oi2, out=isQueryR2);
+        Compare16(a=inID, b=oi3, out=isQueryR3);
+
+        // Get the mark, if isQueryR0 is true, then return om0 (Mark stored in register 0), otherwise 0
+        Mux16(a=false, b=om0, sel=isQueryR0, out=R0Mark);
+        Mux16(a=false, b=om1, sel=isQueryR1, out=R1Mark);
+        Mux16(a=false, b=om2, sel=isQueryR2, out=R2Mark);
+        Mux16(a=false, b=om3, sel=isQueryR3, out=R3Mark);
+
+        Or16(a=R0Mark, b=R1Mark, out=SMark0);
+        Or16(a=SMark0, b=R2Mark, out=SMark1);
+        Or16(a=SMark1, b=R3Mark, out=SMark2);
+
+        // If isSLProbe, return SMark2 result, otherwise using o2 (original output)
+        Mux16(a=o2, b=SMark2, sel=isSLProbe, out=oFinalMark);
+
+        Mux16(a=false, b=oFinalId, sel=onlyOutIDMark, out=outID);
+        Mux16(a=false, b=oFinalMark, sel=onlyOutIDMark, out=outMARK);
+
+        // SAM
+        // If IN has been saved to Register 0, then trigger id0F, 
+        // Similarly, If id0F has been triggered, next in pin will be saved on register 1
+        DFF(in=defaultID0, out=id0F);
+        DFF(in=id0F, out=id1F);
+        DFF(in=id1F, out=id2F);
+        DFF(in=id2F, out=id3F);
+
+        DFF(in=defaultMK0, out=mk0F);
+        DFF(in=mk0F, out=mk1F);
+        DFF(in=mk1F, out=mk2F);
+        DFF(in=mk2F, out=mk3F);
+
+        // defaultID0 / defaultMK0 = 1 Only when following requirements are met:
+        // 1. The Register 0 is empty, and
+        // 2. id0F is not been triggered, and
+        // 3. sl is 1
+        // 4. Due to the reason that there are only 4 registers, 
+        //    once id3f (Register 3 has been written) has been triggered, 
+        //    the previous conditions will be ignored by OR
+        Not(in=id0F, out=NotID0F);
+        CheckZero16(in=oi0, out=oi0Empty);
+        And(a=oi0Empty, b=NotID0F, out=ID0andNotID0F);
+        And(a=ID0andNotID0F, b=sl, out=ID0andNotID0FSL);
+        Or(a=ID0andNotID0FSL, b=id3F, out=defaultID0);
+
+        Not(in=mk0F, out=NotMK0F);
+        And(a=oi0Empty, b=NotMK0F, out=MK0andNotMK0F);
+        And(a=MK0andNotMK0F, b=sl, out=MK0andNotMK0FSL);
+        Or(a=MK0andNotMK0FSL, b=mk3F, out=defaultMK0);
+        
+        // Sequential Load Logic
+        And(a=sl, b=load, out=isSLLoad);
+
+        Mux(a=id0, b=defaultID0, sel=isSLLoad, out=samID0);
+        Mux(a=id1, b=id0F, sel=isSLLoad, out=samID1);
+        Mux(a=id2, b=id1F, sel=isSLLoad, out=samID2);
+        Mux(a=id3, b=id2F, sel=isSLLoad, out=samID3);
+
+        Mux(a=mk0, b=defaultMK0, sel=isSLLoad, out=samMK0);
+        Mux(a=mk1, b=mk0F, sel=isSLLoad, out=samMK1);
+        Mux(a=mk2, b=mk1F, sel=isSLLoad, out=samMK2);
+        Mux(a=mk3, b=mk2F, sel=isSLLoad, out=samMK3);
+
+        
+        // SUM Marks
+        Add16(a=om0, b=om1, out=sumR01);
+        Add16(a=sumR01, b=om2, out=sumR012);
+        Add16(a=sumR012, b=om3, out=sumR0123);
     
-    // SUM Marks
-    Add16(a=om0, b=om1, out=sumR01);
-    Add16(a=sumR01, b=om2, out=sumR012);
-    Add16(a=sumR012, b=om3, out=sumR0123);
-    // OVERFLOW Check
-    
-    Mux16(a=false, b=sumR0123, sel=isEqual1, out=sum);
+        // OVERFLOW Check
+        
+        Mux16(a=false, b=sumR0123, sel=isEqual1, out=sum);
 
-    // SIMPLE AVERAGE - DIVIDE BY 4 (Shift Right 2 times)
-    ShiftRight(in=sumR0123, out=sumR0123D2);
-    ShiftRight(in=sumR0123D2, out=sumR0123D4);
+        // SIMPLE AVERAGE - DIVIDE BY 4 (Shift Right 2 times)
+        ShiftRight(in=sumR0123, out=sumR0123D2);
+        ShiftRight(in=sumR0123D2, out=sumR0123D4);
 
-    // OUT AVERAGE
-    Mux16(a=false, b=sumR0123D4, sel=isEqual2, out=avg);
-
-    // REAL AVERAGE
-    
+        // OUT AVERAGE
+        Mux16(a=false, b=sumR0123D4, sel=isEqual2, out=avg);
 }
