@@ -407,11 +407,7 @@ void modelProcessor(const std::string &fileName, std::vector<glm::vec3> &points,
         if (token == "o") {
             //Object Name
         }
-        if (token == "usemtl") {
-            //Colour Task 3: Material Files
-            lineStream >> currentColourName;
-            currentColour = colours[currentColourName];
-        }
+
         if (token == "v") {
             //Processing V
             //v 1.480989 -1.088751 2.155087
@@ -423,10 +419,26 @@ void modelProcessor(const std::string &fileName, std::vector<glm::vec3> &points,
             points.push_back(point);
 
         }
+        if(token == "vt")
+        {
+        }
         if (token == "f") {
             //Processing f
             //f 25/ 27/ 28/
+
             std::vector<std::string> tempValue = split(line, ' ');
+
+f 5/6 7/8 9/10
+            tempValue[1].split('/')[0] 5
+            tempValue[2].split('/')[0] 7
+             tempValue[3].split('/')[0] 9
+
+             tempValue[1].split('/')[1] 6
+            tempValue[2].split('/')[1] 8
+            tempValue[3].split('/')[1] 10
+
+
+
             //Remember that vertices in OBJ files are indexed from 1 (whereas vectors are indexed from 0). so just mines 1
 //            faceIndex.push_back(
 //                    {std::stoi(tempValue[1]) - 1, std::stoi(tempValue[2]) - 1, std::stoi(tempValue[3]) - 1});
