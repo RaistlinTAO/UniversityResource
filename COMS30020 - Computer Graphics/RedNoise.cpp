@@ -503,6 +503,84 @@ glm::vec2 getCanvasIntersectionPoint(glm::vec3 cameraPosition, glm::vec3 vertexP
 
 //endregion
 
+//region
+
+/***
+     重心坐标（Barycentric Coordinates）
+     重心坐标是描述一个点在三角形内部位置的方法。对于给定的三角形ABC和一个在三角形内部的点P，P可以用三个重心坐标（α、β和γ）表示：
+
+     α、β和γ是关于三个顶点（A、B、C）的权重系数；
+     它们满足α + β + γ = 1；
+     在三角形内，α、β和γ的取值范围为 [0, 1]。
+     通过重心坐标，可以使用以下公式计算在三角形内部任意一点P的坐标：
+
+     P = α * A + β * B + γ * C
+***/
+
+// 将纹理映射到三角形画布上
+void mapTextureToCanvas(std::vector<Point> canvasTriangle, std::vector<Point> textureTriangle, Canvas& canvas) {
+    // 获取画布三角形的最小矩形范围
+    float minX = std::min(canvasTriangle[0].x, std::min(canvasTriangle[1].x, canvasTriangle[2].x));
+    float minY = std::min(canvasTriangle[0].y, std::min(canvasTriangle[1].y, canvasTriangle[2].y));
+    float maxX = std::max(canvasTriangle[0].x, std::max(canvasTriangle[1].x, canvasTriangle[2].x));
+    float maxY = std::max(canvasTriangle[0].y, std::max(canvasTriangle[1].y, canvasTriangle[2].y));
+
+    // 遍历最小矩形范围内的每个像素点
+    for (int x = static_cast<int>(minX); x <= static_cast<int>(maxX); ++x) {
+        for (int y = static_cast<int>(minY); y <= static_cast<int>(maxY); ++y) {
+            // 检查当前像素点是否在三角形内部
+            if (isPointInTriangle(x, y, canvasTriangle)) {
+                // 计算当前像素点在纹理上的对应坐标
+                float textureX, textureY;
+                calculateTextureCoordinates(x, y, canvasTriangle, textureTriangle, textureX, textureY);
+
+                // 获取纹理颜色并填充到画布上
+                std::vector<int> textureColor = getTextureColor(textureX, textureY);
+                canvas.setPixel(x, y, textureColor);
+            }
+        }
+    }
+}
+
+// 检查点是否在三角形内部
+bool isPointInTriangle(float x, float y, std::vector<Point> triangle) {
+    float area = 0.5 * (-triangle[1].y * triangle[2].x + triangle[0].y * (-triangle[1].x + triangle[2].x) +
+                        triangle[0].x * (triangle[1].y - triangle[2].y) + triangle[1].x * triangle[2].y);
+    float s = 1 / (2 * area) *
+              (triangle[0].y * triangle[2].x - triangle[0].x * triangle[2].y + (triangle[2].y - triangle[0].y) * x +
+               (triangle[0].x - triangle[2].x) * y);
+    float t = 1 / (2 * area) *
+              (triangle[0].x * triangle[1].y - triangle[0].y * triangle[1].x + (triangle[0].y - triangle[1].y) * x +
+               (triangle[1].x - triangle[0].x) * y);
+    return s >= 0 && t >= 0 && (s + t) <= 1;
+}
+
+// 计算纹理坐标
+void calculateTextureCoordinates(float x, float y, std::vector<Point> canvasTriangle, std::vector<Point> textureTriangle,
+                                 float& textureX, float& textureY) {
+    // 计算重心坐标
+    float denominator = ((textureTriangle[1].y - textureTriangle[2].y) * (textureTriangle[0].x - textureTriangle[2].x) +
+                         (textureTriangle[2].x - textureTriangle[1].x) * (textureTriangle[0].y - textureTriangle[2].y));
+    float alpha = ((textureTriangle[1].y - textureTriangle[2].y) * (x - textureTriangle[2].x) +
+                   (textureTriangle[2].x - textureTriangle[1].x) * (y - textureTriangle[2].y)) /
+                  denominator;
+    float beta = ((textureTriangle[2].y - textureTriangle[0].y) * (x - textureTriangle[2].x) +
+                  (textureTriangle[0].x - textureTriangle[2].x) * (y - textureTriangle[2].y)) /
+                 denominator;
+    float gamma = 1 - alpha - beta;
+
+    // 根据重心坐标计算纹理坐标
+    textureX = alpha * textureTriangle[0].x + beta * textureTriangle[1].x + gamma * textureTriangle[2].x;
+    textureY = alpha * textureTriangle[0].y + beta * textureTriangle[1].y + gamma * textureTriangle[2].y;
+}
+
+// 获取纹理颜色（示例方法，需要根据实际情况进行修改）
+std::vector<int> getTextureColor(float x, float y) {
+    // 返回纹理颜色的方法，根据传入的纹理坐标返回纹理颜色值
+    return {};
+}
+
+//endregion
 
 int main(int argc, char *argv[]) {
     //getFile("cornell-box.obj");
