@@ -1,0 +1,177 @@
+\documentclass[12pt]{article}
+\usepackage{amsfonts, epsfig}
+
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lfoot{\texttt{coms30127.github.io}}
+\lhead{Computation Neuroscience - 03.1\_mp\_neurons - Conor}
+\rhead{\thepage}
+\cfoot{}
+
+\usepackage{graphicx}
+\usepackage{pstricks}
+\usepackage{listings}
+
+\usepackage{tikz}
+
+\usepackage{pgf}
+\usepackage[utf8]{inputenc}
+\usetikzlibrary{arrows,automata}
+\usetikzlibrary{positioning}
+
+
+\tikzset{
+    state/.style={
+           rectangle,
+           rounded corners,
+           draw=black, very thick,
+           inner sep=2pt,
+           text centered,
+           },
+}
+\tikzset{
+    on/.style={
+           circle,
+           draw=red, very thick,
+           inner sep=2pt,
+           fill=red!25,
+           },
+}
+
+
+\tikzset{
+    off/.style={
+           circle,
+           draw=blue, very thick,
+           inner sep=2pt,
+           text centered,
+           },
+}
+
+
+
+\tikzset{
+    neuron/.style={
+           rectangle,
+           rounded corners,
+           draw=black, very thick,
+           inner sep=2pt,
+           text centered,
+           },
+}
+
+
+
+\tikzset{
+    area/.style={
+           rectangle,
+           draw=black, very thick,
+           inner sep=2pt,
+           text centered,
+           },
+}
+
+
+\tikzset{
+    gc/.style={
+           rectangle,
+           rounded corners,
+           draw=red, very thick,
+           inner sep=2pt,
+           text centered,
+           },
+}
+
+
+\tikzset{
+    inh/.style={
+           rectangle,
+           rounded corners,
+           draw=blue, very thick,
+           inner sep=2pt,
+           text centered,
+           },
+}
+
+
+
+\tikzset{
+    io/.style={
+           rectangle,
+           draw=green, very thick,
+           inner sep=2pt,
+           text centered,
+           },
+}
+
+
+
+\begin{document}
+
+\section*{McCulloch-Pitts neurons} 
+
+The McCulloch Pitts neuron model, or Threshold Logic Unit, was
+introduced in 1943 by Warren McCulloch and Walter
+Pitts\footnote{Walter Pitts was an interesting and odd man, a genius
+in the old-fashioned self-destructive and brilliant sense.} as a
+computational model of a neuronal network
+\cite{McCullochPitts1943}. Their thinking was that neurons are joined
+to each other with connections of variable strength; in the soma the
+inputs from other neurons are added up and they determine the activity
+of the neuron in a non-linear way; they also knew that neurons tend to
+ignore input up to some threshold value before responding
+strongly. These properties they tried to include in their model
+neurons.
+
+Artificial neurons, of the sort used in artificial intelligence, are
+described by a single dynamical variable, $x_i$ say for a neuron
+labelled $i$; the value of $x_i$ is determined by the weighted input
+from the other neurons:
+\begin{equation}
+x_i=\phi\left(\sum_j w_{ij} x_j-\theta_i\right)
+\end{equation}
+$\phi$ is an activation function, $\theta$ is a threshold and the
+$w_{ij}$ are the connection strengths weighting the inputs from the
+other neurons. The McCulloch Pitts neuron was the first example of an
+artificial neuron and had a step function for $\phi$:
+\begin{equation}
+x_i=\left\{\begin{array}{ll}1&\sum_j w_{ij} x_j>\theta_i\\-1&\mbox{otherwise}\end{array}\right.
+\end{equation}
+Thus, the neuron has two states, it is in the on state, $x_i=1$ if the
+weighted input exceeds a threshold $\theta_i$ and an off state,
+$x_i=-1$ if it doesn't; the picture you might have of how this
+corresponds to the brain is that \lq{}on\rq{} corresponds to rapid
+spiking and \lq{}off\rq{} to spiking at a much lower rate. The
+$w_{ij}$, the connection strengths, are like the synapse strengths, a
+positive $w_{ij}$ is an excitatory synapse and negative, an
+inhibitory; a given neurons have both negative and positive
+out-going synapses, that is there is no restriction that says $w_{ij}$
+always has the same sign for a given $j$, this is different from real
+neurons where all the outgoing synapses from a given neuron are either
+excitatory or inhibitory.
+
+While it should be clear that this network has some of the properties,
+very abstracted, of a neuronal network, it might not be so clear what
+can be done with the neurons. When they were working, at the dawn of
+the age of electronic computers, McCulloch and Pitts believed that
+their neurons might form the natural unit in computer circuits. In
+other words, they thought they might perform the role actually played
+by logical circuits. In fact, it is still not clear if the artificial
+neuron is or isn't the natural unit of computation in silicon since
+they are a component in, for example, deep learning networks. In fact,
+there are two major applications of McCulloch-Pitts neurons: the
+perceptron and the Hopfield network. These two applications add a rule
+for changing the connection strength to the original McCulloch-Pitts
+neuron.
+
+
+\begin{thebibliography}{10}
+
+\bibitem{McCullochPitts1943}
+McCulloch, W and Pitts, W. (1943). A logical calculus of the ideas immanent in nervous activity. 
+\newblock Bulletin of Mathematical Biophysics, 5:115--133. 
+
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,113 @@
+\documentclass[12pt]{article}
+\usepackage{amsfonts, epsfig}
+\usepackage[authoryear]{natbib}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lfoot{\texttt{com30127.github.io}}
+\lhead{Computational Neuroscience - 01.3 Types of neurons and synapses - Conor}
+
+
+\begin{document}
+
+\section*{Types of neurons and synapses}
+
+This is just a short note to emphasis an important fact about the
+brain: there are lots of different types of neurons and lots of
+different types synapses.
+
+\subsection*{Dale's principle}
+
+We saw that synapses come in two broad classes, excitatory synapses
+which make the post-synaptic neuron more likely to fire a spike and
+inhibitory, which make it less likely. Perhaps surprisingly, a given
+neuron will only ever have one type of synapse; this is known as
+\textsl{Dale's principle}. It means that neurons are also divided into
+two main types, \textsl{excitatory neurons} whose synapses are all
+excitatory and \textsl{inhibitory neurons} whose synapses are all
+inhibitory. This division into excitatory and inhibitory neurons
+appears to be a substantial difference between neurons in the brain
+and the nodes, a sort of idealized neuron, that make up typical neural
+networks. It is important to understand that the division relates to
+the out-going signals, neurons usually receive a mixture of excitatory
+and inhibitory signals.
+
+In the cortex; the part of the brain which most obviously
+distinguishes mammals from simpler animals, the inhibitory neurons
+tend to be small and to have only local connectivity; they are also
+pretty diverse with lots of different types, basket cells, stellate
+cells, fast-spiking PV cells. The excitatory neurons are usually
+larger, they tend to have local and distal connections and come in
+varieties of one main type: the pyramidal cell. It is tempting to
+think of the pyramidal cells as doing `the work' and the inhibitory
+cells as helping modulate and sculpt the activity of the pyramidal
+cells. It remains to be seen if that is a useful way of thinking of
+what happens. In other parts of the brain there are circuits where the
+\textsl{principle cells}, the ones tasked with signalling outside of
+the region, are inhibitory.
+
+
+\subsection*{More types of synapses}
+
+Synapses are also classified by the sort of neurotransmitter they
+produce. For excitatory synapses this is almost always
+\textsl{glutamate}, a small amino acid. This does not end the
+classification; there are different receptor types for glutamate, the
+main ones are called \textsl{NMDA} and \textsl{AMPA}; the acronyms are
+short for complicated chemical names and we are, here, straying into
+more detail than we might need. The main point is that NMDA and AMPA
+receptors have different behaviours, both in short-term in the time
+course of their binding to the transmitter, and in the longer term, in
+how they change in number and strength in response to what is
+happening at the synapse. A glutamate synapse will usually have a
+mixture of ligand-gated channels with NMDA and AMPA receptors.
+
+For inhibitory synapses the most common neurotransmitter is called
+\textsl{GABA}, again, the acronym is short for a complicated chemical
+name. There are also two types of receptor here, but these are classes
+of receptors rather than distinct receptors as in the case of
+glutamate: the story for inhibitory synapses is more complex even than
+the story of excititory synapses: the two classes are
+\textsl{ionotropic} receptors and \textsl{metabotropic} receptors with
+the metabotropic receptors actually deviating from our description of
+how synapses work since they don't directly involve ligand-gated
+channels.
+
+Again, we risk straying into the massive complexity of synapses; the
+main point of this short subsection is to note that there is a
+complicated story and to, perhaps, suggest that the complexity of
+synapses and the huge range of behaviours in terms of the temporal
+behaviour and the different PSP profiles this produces is an
+interesting element of any attempt to compare learning in the brain
+and in computers.
+
+\subsection*{Neuromodulation}
+
+We have concentrated so far on electrical signalling; the part of
+neuronal computation that involves neurons sending spikes to each
+other. There is another system in the brain that is important for
+computation: neuromodulation. Neuromodulators are chemicals which can
+change the behaviour of a neuron or synapse; there are a lot of
+different neuromodulators, but the `big four' are serotonin, dopamine,
+acetylcoline and noradreneline. Neuromodulators are released, at
+synapses, by specialised cells which are usually found in specific
+brain regions but with axons that spread over the whole
+brain. Sometimes the neuromodulator is released to one post-synaptic
+cell, often they are released into the extracellular fluid so that
+they affect a group of cells. There are a large number of different
+receptors for the neuromodulators and these can have complicated
+affects, changing the excitability of a neuron for example, or
+prompting a synapse to change strength.
+
+It is common to think of neuromodulation as adjusting the
+computational circuit, like a series of knobs and levers which can up-
+or down-regulate the computational dynamics and they do so over
+different timescales. These neuromodulators are very interesting
+because they seem to link the quite low-level details of how circuits
+work, they are produced by neurons in response to signals to those
+neurons, and high-level behaviours. Changes in neuromodulation can be
+linked to different decision-making strategies and can, it is thought,
+be experienced as mood.
+
+\end{document}
+

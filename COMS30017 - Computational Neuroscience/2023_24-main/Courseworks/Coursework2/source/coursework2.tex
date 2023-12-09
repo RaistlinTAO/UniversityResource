@@ -1,0 +1,60 @@
+\documentclass[12pt]{article}
+\usepackage{amsfonts, epsfig}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lfoot{\texttt{coms30127.github.io}}
+\lhead{Computational Neuroscience - Coursework 2 - a perceptron}
+\rhead{\thepage}
+\cfoot{}
+\begin{document}
+
+\section*{Coursework 2}
+
+This coursework relates to the perceptron. In a perceptron there is an input vector of size $d$:
+\begin{equation}
+  \mathbf{x}=(x_1,x_2,\ldots,x_d)
+\end{equation}
+These are not restricted to discrete values. They feed forward to a MP neuron with value $y$ using the usual thresholding function:
+\begin{equation}
+  y=\left\{\begin{array}{ll}1&\sum_i w_ix_i\ge \theta\\-1&\mbox{otherwise}\end{array}\right.
+\end{equation}
+where $w_i$s are weights, corresponding to synapse strenghts and you
+aren't really restricted in your choice of the two discrete values,
+one and -1 in this case. The idea is that you have a set of inputs:
+\begin{equation}
+  X=\{\mathbf{x}_1,\mathbf{x}_2,\ldots,\mathbf{x}_n\}
+\end{equation}
+where, to be clear, each of these inputs is a $d$-vector, so the index
+on bold quantities labels data, not to be confused with the dimension
+index on unbolded quantities. Each input is labelled:
+\begin{equation}
+  D=\{d_1,d_2,\ldots,d_n\}
+\end{equation}
+where in this example the labels take two values, -1 and one
+corresponding to blue and red. The goal is to use the perceptron to map:
+\begin{equation}
+  \textbf{x}\rightarrow d
+\end{equation}
+The perceptron rule is that we can do this by the update:
+\begin{equation}
+  w_i\leftarrow w_i+\eta x_i (d-y)
+\end{equation}
+and
+\begin{equation}
+  \theta\leftarrow \theta+\eta(d-y)
+\end{equation}
+
+In the \texttt{Coursework2} folder you will find a list of labelled
+points called \texttt{points.txt}. The goal is to programme a
+  perceptron capable of classifying these points. Pick a modest $\eta$
+  such as $\eta=0.01$ and it should learn the task in tens of
+  trials. I have supplied small programmmes, \texttt{load.py} and
+  \texttt{load.jl}, to help load the data in python or julia.
+
+If you have this working you can experiment with what happens if you
+change the MP neuron, or the perceptron rule, or mislabel some points.
+
+
+\end{document}

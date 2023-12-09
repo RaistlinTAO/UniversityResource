@@ -1,0 +1,327 @@
+\documentclass[12pt]{article}
+\usepackage{amsfonts, epsfig}
+
+\usepackage{graphicx}
+\usepackage{pstricks}
+\usepackage{listings}
+
+\usepackage{tikz}
+%\usepackage{tikzscale}
+%\usepackage{pgfplots}
+
+%\pgfplotsset{compat=1.8}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lfoot{\texttt{coms30127.github.io}}
+\lhead{Computation Neuroscience - 05.1\_bucket\_equation - Conor}
+\rhead{\thepage}
+\cfoot{}
+
+
+\usepackage{ifthen}
+\newboolean{nopics}
+\setboolean{nopics}{true}
+
+
+\begin{document}
+
+
+
+\subsection*{Electrical properties of a neuron}
+The potential inside a neuron is lower than the potential on the
+outside; this difference is created by ion pumps, small molecular
+machines that use energy to pump ions across the membrane seperating
+the inside and outside of the cell. One typical ion pump is
+Na+/K+-ATPase (Sodium-potassium adenosine triphosphatase); this uses
+energy in the form of ATP, the energy carrying molecule in the body,
+and through each cycle it moves three sodium ions out of the cell and
+two potassium ions into the cell. Since both sodium and potassium ions
+have a charge of plus one, this leads to a net loss of one atomic
+charge to the inside of the cell lowering its potential. It also
+creates an excess of sodium outside the cell and an excess of
+potassium inside it. We will return to these chemical imbalances
+later. The potential difference across the membrane is called the
+\textbf{membrane potential}. At rest a typical value of the membrane
+potential is $E_L=-70 $mV. It is useful to remember that the excessive
+sodium is outside the cell and potassium inside; I think of islands
+which are surrounded by salty water, as in Fig.~\ref{in_out}.
+
+
+\begin{figure}
+    \ifthenelse{\boolean{nopics}}
+    {\textsl{A map of the UK is marked with u\textbf{K}$^+$ in the land area and \textbf{Na}$^+$Cl$*-$ in the sea area, for comic effect the `UK' as actually just England and Wales.} 
+}
+    {
+        \begin{center}
+      \includegraphics[width=6cm]{in_out_future}
+        \end{center}
+        }
+\caption{A cartoon to help you remember that there is more sodium outside the cell and more potassium inside.\label{in_out}}
+\end{figure}
+
+
+\subsection*{Spikes}
+
+So the summary version of what happens in neuons is that
+\textbf{synapses} cause a small increase or decrease in the voltage;
+\textbf{excitatory synapses} cause an increase, \textbf{inhibitory
+  synapses} a decrease. This drives the internal voltage dynamics of
+the cell, these dynamics are what we will learn about here. If the
+voltage exceeds a threshold, say $V_T=-55$ mV there is a nonlinear
+cascade which produces a \textbf{spike} or \textbf{action potential},
+a spike in voltage 1-2 ms wide which rises above 0 mV before, in the
+usual description, falling to a reset value of $V_R=-65$ mV, the cell
+then remains unable to produce another spike for a \textbf{refractory
+  period} which may last about 5 ms. We will examine how spikes are
+formed later, this involves the nonlinear dynamics of ion channels in
+the membrane; first though we will consider the integrate and fire
+model which ignores the details of how spikes are produced and
+simplifies the voltage dynamics.
+
+\subsection*{The bucket-like equation for neurons}
+
+We will now try to extend the bucket-like equation we looked at before
+so that it applies to neurons. First off we replace $h$, the height of
+the water, by $V$ the voltage in the cell and $C$ will be replaced by
+$C_m$, the capacitance of the membrane, the amount of electrical
+charge that can be stored at the membrane is $C_mV$. The amount of
+electrical charge is the analogue of the volume of water. Thus,
+voltage is like height, charge is like the amount of water.
+
+The leak is a bit more complicated, because of the chemical gradients,
+that is the effects of the differing levels of ions inside and outside
+the cell along and their propensity to diffuse, the voltage at which
+there is no leaking of charge is not zero, it is $E_L=-70 $mV,
+roughly. This is an important aspect of how neurons behave, and one we
+will encounter again looking at the Hodgkin-Huxley equation: you might
+at first expect that if the voltage inside the cell was, say, -60 mV
+then even if there was a high conductivity for potassium at the
+membrane, the potassium ions would stay in the cell: they are positive
+ions after all and so a negative voltage means the electrical force is
+attracting them to the inside of the cell. However, this isn't quite
+what happens, there is a high concentration of potassium inside the
+cell and because of the random motion of particles associated with
+temperature, these have a tendency to diffuse, that is to increase the
+entropy of the situation by spreading out. It takes a force to
+counteract this. This is the reversal potential, $E_L$, the voltage
+required for zero current even if there is some conductivity. It turns
+out that the normal Ohm's law applies around the reversal potential so
+that the current out of the cell is proportional to $V-E_L$.
+
+$G$ is now $G_m$, a conductance, measuring the porousness of the
+membrane to the flow of ions, in other words, it gives the constant of proportionality for the leak current: the leak current out of the cell is
+$G_m(V-E_L)$. We actually divide across by the conductance, and write
+$R_m=1/G_m$, the resistance. Finally, we write $\tau_m=C_m/G_m$ to get
+\begin{equation}
+\tau_m\frac{dV}{dt}=E_L-V+R_mI
+\end{equation}
+$I$ might end up being synaptic input, but traditionally we write the
+equation to match the \textsl{in vivo} experiment where $I$ is an
+injected current from an electrode, so we write $I_e$, \lq{}e\rq{} for
+electrode. $\tau_m$ is a time constant, using the notation of
+dimensional analysis we have $[\tau_m]=T$. To check this note that the
+units of capacitance are charge per voltage: $[C_m]=QV^{-1}$, the
+units of resistance is voltage per current $[R_m]=VI^{-1}$ and current
+is charge per time, $[I]=QT^{-1}$ so $[C_mR_m]=T$, time.
+
+The equation above leaves out the possibility that there are other
+non-linear changes in the currents through the membrane as $V$
+changes. This is a problem since there are other non-linear changes in
+the currents through the membrane as $V$ changes. The equation above
+leaves these out, in fact, the nonlinear effects are strongest for
+values of $V$ near where a spike is produced, so one approach is to
+use the linear equation unless $V$ reaches a threshold value and then
+add a spike \lq{}by hand\rq{}. This has the effect of changing the
+voltage to a reset value, this mimics what happens in the neuron, or
+in the Hodgkin Huxley model which we will look at next and which
+includes the full non-linear dynamics which makes the spike. Anyway,
+in summary
+\begin{itemize}
+\item $V$ satisfies
+\begin{equation}
+\tau_m\frac{dV}{dt}=E_L-V+R_mI_e
+\end{equation}
+\item If $V\ge V_T$ a spike is recorded and the voltage is set to a
+  reset value $V_R$.
+\end{itemize}
+The reset value, the voltage after the spike is often set equal to the
+ leak potential. This is the \textbf{leaky integrate and fire model}, a surprisingly
+old model first introduced in \cite{Lapicque1907a}. It lacks lots of
+the details important in the dynamics of neurons, but is useful and
+often used for modeling the behavior of large neuronal networks or for
+exploring ideas about neuronal computation in a relatively
+straight-forward setting.
+
+This model is easy to solve; if $I_e$ is constant we have already
+solved it above, up to messing around with constants:
+\begin{equation}
+V(t)=E_L+R_mI_e+[V(0)-E_L-R_mI_e]e^{-t/\tau_m}
+\end{equation}
+If $I_e$ is not
+constant it may still be possible to solve the equation, but in any
+case the equation can be solved numerically on a computer. An example
+in given in Fig.~\ref{v_i_f}.
+
+\begin{figure}
+  \begin{center}
+    \ifthenelse{\boolean{nopics}}
+    {\textsl{In this graph the horizontal axis is labelled $t$ (ms), the vertical $V$ $mV$. The former runs from zero to 100, the latter from -70 to 20. There are two curves, one marked $R_mI_e=12$ mV rises from -70 and is soon indistinguishable from a constant lines at -58 mV; the one marked $R_mI_e=16$ mV rises to $-55$ mV, then there is a spike to 20 mV and the curve starts again at $-70$ mV. This happens three times}}
+{  \include{v_i_f}
+ } 
+\end{center}
+\caption{An integrate and fire neuron with different inputs. For
+  $R_mI=12 $mV the voltage relaxes towards the equilibrium value
+  $V=E_L+R_mI_e=-58$ mV. It never reaches the threshold value of
+  $V_T=-55 $mV. For $R_mI=16$ mV the voltage reaches threshold and so
+  there is a spike; the spike is added by hand, in this case by
+  setting $V$ to $20$ mV for one time step. The voltage is then
+  reset. Here $\tau_m=10$ ms.\label{v_i_f}}
+\end{figure}
+
+One thing to notice is that there are no spikes for low values of the current. Looking at the equation 
+\begin{equation}
+\tau_m\frac{dV}{dt}=E_L-V+R_mI_e
+\end{equation}
+so the equilibrium value for constant $I_e$, the value where $V$ stops changing, is
+\begin{equation}
+\bar{V}=E_L+R_mI_e
+\end{equation}
+Now if this value $\bar{V}>V_T$ then as the neuron voltage increased
+towards its equilibrium value, $\bar{V}$, it would reach the
+threshold, $V_T$, and spike. Hence, if $\bar{V}>V_T$ the neuron will
+spike repeatedly.  However if $\bar{V}<V_T$ then the neuron will not
+spike for that input because it will never reach threshold. 
+
+In fact, we can work out the curve that represents the firing rate as
+a function of the current; this is the called the f-I curve and is shown in Fig.~\ref{f_i_curve}. In the model
+\begin{equation}
+\tau_m\frac{dV}{dt}=E_L-V+R_mI_e
+\end{equation}
+which we can solve from our study of odes, it gives
+\begin{equation}
+V(t)=E_L+R_mI_e+[V(0)-E_L-R_mI_e]e^{-t/\tau_m}
+\end{equation}
+so if the neuron has spiked and is reset at time $t=0$ and reaches
+threshold at time $t=T$, assume $V_R=E_L$ we have
+\begin{equation}
+V_T=E_L+R_mI_e-R_mI_ee^{-T/\tau_m}
+\end{equation}
+so 
+\begin{equation}
+e^{-T/\tau_m}=\frac{E_L+R_mI_e-V_T}{R_mI_e}
+\end{equation}
+Taking the log of both sides we get
+\begin{equation}
+T=\tau_m\log\left[\frac{R_mI_e}{E_L+R_mI_e-V_T}\right]
+\end{equation}
+Finally, this is the time between spikes, so the frequency is one over this. It is only defined for $R_mI_e>V_T-E_L$, below that there is no spiking and the frequency is zero. The actual gnuplot command used to make the figure was\\
+\texttt{plot [0:22] x>15 ? 1/(.01*log(x/(x-15))) : 0}
+
+
+\begin{figure}
+  \begin{center}
+    \ifthenelse{\boolean{nopics}}
+    {\textsl{In this graph the vertical axis is marked `firing rate in Hz' and goes from zero to 80, the horizontal $R_mI_e$ and goes from zero to 20. The curve is zero until $R_mI_e=15$, after that it rises, sharply at first, almost going straight up, and then steeply but not quite as steep to reach 80 near $R_mI_e=20$.} }
+{\include{f_i_curve}
+}
+  \end{center}
+\caption{The firing rate, that is spikes per second, for the integrate
+  and fire neuron with different constant inputs with $\tau_m=10$ ms,
+  $V_T=-55$ mV and both the leak and reset given by $-70$ mV. Notice
+  how there is no firing until a threshold is reached and after that
+  the firing increases very quickly. \label{f_i_curve}}
+\end{figure}
+
+
+We have been ignoring the refractory period, this can easily be added
+to the model. The easiest approach is just to adjust the rule for
+spiking by specifying the voltage remains fixed at $V_r$ for some
+time, $T_r$, corresponding to the refractory period. In fact, the
+refractory period tends to be divided in the \textsl{absolute
+  refractory period} when the neuron can't spike at all and a
+\textsl{relative refractory period} when spiking is just
+harder. Holding $V$ at $V_r$ models an absolute refractory period, to
+model a relative refractory period a negative current can be added to
+the equation.
+
+In fact, neurons tend not to have a regular firing rate; they often,
+for example, show spike rate adaptation. This means that the firing
+rate decreases even if the incoming current remains constant. As we
+have seen this isn't modelling in the integrate and fire model, in the
+integrate and fire model the response to a constant current is a
+constant firing rate. The model can be extended to include it. For
+example a slow potassium current could be added, a slow potassium
+current is a current that would increase every time there is a spike
+and decrease between spikes. Since a potassium current reduces the
+voltage inside the cell, it decreases the firing rate; thus, if the
+cell fires quickly the potassium current increases, decreasing the
+firing rate until the increase in the potassium when there is a spike
+balances the decrease between spikes. These slow currents are common,
+they may help protect the cell from `exhaustion' by reducing its spike
+rate for ongoing stimuli and they may play a computation role, helping
+the brain infer the nature of stimuli across timescales. The `face of
+Jesus' illusion demonstrates the existence of these currents.
+
+A simple approach, which would approximate adding a potassium would be
+to just add a second input $u$
+\begin{equation}
+  \tau\frac{dV}{dt}=R_mI_e-V+u
+\end{equation}
+where
+\begin{equation}
+  \tau_u\frac{du}{dt}=-u
+\end{equation}
+where there is an additional rule that $u\leftarrow u+\delta u$
+whenever there is a spike. Thus if $u$ is negative it will reduce the
+equilibrium value of $V$, reducing the spike rate if the cell is
+spiking. $u$ will decay towards zero with a timescale $\tau_u$ but
+spiking will change it by $\delta u$. In the case we have discussed
+here, where we want to model a reduction in spiking $\delta u$ would
+be negative and $\tau_u$ would have a moderate timescale, perhaps 200
+ms.
+
+\section*{Summary}
+
+Chemical gradients mean that current flows across the membranes of the
+cell are not zero for zero potential There is a reversal potential for
+each type of ion, this is the value of the potential for which no
+current flows. For our purposes here we consider the leak potential;
+at lower voltages most of the channels that allow ions to pass through
+the membrane are closed, this means the conductance is near zero. The
+are some open channels, mostly for potassium and the corresponding
+reversal potential is called the leak potential $E_l$ while the
+conductance is $g_l$. $E_l$ is often take to be somewhere around -80
+mV. Using Ohms law the equation for the voltage in a cell is then
+\begin{equation}
+  C_m\frac{dV}{dt}=g_l(E_l-V)+I_e
+\end{equation}
+where $C_m$ is the capacitance of the membrane and $I_e$ is the input current. This is also written
+\begin{equation}
+  \tau_m\frac{dV}{dt}=E_l-V+R_mI_e
+\end{equation}
+where $\tau_m$ is a timescale, often around 12-20 ms and
+$R_m=1/g_l$. However, this linear equation does not include the
+nonlinear dynamics that supports spiking, we add spiking `by hand'
+with a rule that says if $V>V_t$, a threshold value, usually about -55
+mV, then there is a spike and the voltage is reset to a reset value
+$V_r$ often set equal to, or a little greater than, $E_l$. This is the
+leaky integrate and fire equation. We know something of what the
+solutions look like from the leaky bucket equation considered before,
+but now there are spikes. We can see that if the equilibrium value
+$E_l+R_mI_e$ is greater than $V_t$ the neuron will spike regularly, if
+it is less, it won't spike at all. The equation leaves out the actual
+spiking dynamics, it also ignores the actual spatial organization of
+the neuron, treating it as a point. It does not include some other
+aspects of neuronal spiking like the refractory period and slow
+currents, though these can be added, at least approximately.
+
+
+\begin{thebibliography}{99}
+\bibitem{Lapicque1907a}
+Lapicque, L. (1907). 
+\newblock Recherches quantitatives sur l'excitation électrique des nerfs traitée comme une polarisation. 
+\newblock J. Physiol. Pathol. Gen, 9:620--635.
+\end{thebibliography}
+
+\end{document}
