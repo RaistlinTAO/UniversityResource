@@ -23,17 +23,17 @@
 
 ## Deakin University
 
-- [SIT104 Introduction to Web Development](SIT104%20-%20Introduction%20to%20Web%20Development)
-- [SIT113 Cloud Computing and Virtualisation](SIT113%20-%20Cloud%20Computing%20and%20Virtualisation)
-- [SIT151 Game Fundamentals](SIT151%20Game%20Fundamentals)
-- [SIT703 Advanced Digital Forensics](SIT703%20Advanced%20Digital%20Forensics)
-- [SIT706 Cloud Computing](SIT706%20Cloud%20Computing)
-- [SIT708 Mobile Systems Development](SIT708%20-%20Mobile%20Systems%20Development)
-- [SIT725 Software Engineering](SIT725%20-%20Software%20Engineering)
-- [SIT737 Service Oriented Architectures and Technologies](SIT737%20-%20Service%20Oriented%20Architectures%20and%20Technologies)
-- [SIT740 Research and Development in Information Technology](SIT740%20-%20Research%20and%20Development%20in%20Information%20Technology)
-- [SIT742 Modern Data Science](SIT742%20-%20Modern%20Data%20Science)
-- [SIT764 Project Analysis and Design](SIT764%20-%20Project%20Analysis%20and%20Design)
+- [SIT104 - Introduction to Web Development](SIT104%20-%20Introduction%20to%20Web%20Development)
+- [SIT113 - Cloud Computing and Virtualisation](SIT113%20-%20Cloud%20Computing%20and%20Virtualisation)
+- [SIT151 - Game Fundamentals](SIT151%20-%20Game%20Fundamentals)
+- [SIT703 - Advanced Digital Forensics](SIT703%20-%20Advanced%20Digital%20Forensics)
+- [SIT706 - Cloud Computing](SIT706%20-%20Cloud%20Computing)
+- [SIT708 - Mobile Systems Development](SIT708%20-%20Mobile%20Systems%20Development)
+- [SIT725 - Software Engineering](SIT725%20-%20Software%20Engineering)
+- [SIT737 - Service Oriented Architectures and Technologies](SIT737%20-%20Service%20Oriented%20Architectures%20and%20Technologies)
+- [SIT740 - Research and Development in Information Technology](SIT740%20-%20Research%20and%20Development%20in%20Information%20Technology)
+- [SIT742 - Modern Data Science](SIT742%20-%20Modern%20Data%20Science)
+- [SIT764 - Project Analysis and Design](SIT764%20-%20Project%20Analysis%20and%20Design)
 
 ## Edith Cowan University
 
@@ -63,6 +63,12 @@
 - [COMS20011 - Data Driven Computer Science](COMS20011%20-%20Data%20Driven%20Computer%20Science)
 - [COMS30014 - Artificial Intelligence](COMS30014%20-%20Artificial%20Intelligence)
 - [COMS30017 - Computational Neuroscience](COMS30017%20-%20Computational%20Neuroscience)
+- [COMS30020 - Computer Graphics](COMS30020%20-%20Computer%20Graphics)
+- [COMS30029 - Human-Computer Interaction](COMS30029%20-%20Human-Computer%20Interaction)
+
+## University of Liverpool
+
+- [MATH268 - Operational research probabilistic models](MATH268%20-%20Operational%20research%20probabilistic%20models)
 
 ## University of Melbourne
 
