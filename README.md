@@ -4,7 +4,7 @@
 
 ## Auckland University of Technology
 
-- [COMP615 Foundations of Data Science](COMP615%20%20Foundations%20of%20Data%20Science)
+- [COMP615 - Foundations of Data Science](COMP615%20-%20Foundations%20of%20Data%20Science)
 
 ## Australian National University
 
@@ -19,7 +19,7 @@
 
 ## Deakin College (Foundation Program)
 
-- [FNDB020 Accounting](FNDB020%20Accounting)
+- [FNDB020 - Accounting](FNDB020%20-%20Accounting)
 
 ## Deakin University
 
@@ -37,26 +37,26 @@
 
 ## Edith Cowan University
 
-- [CSI2450 IoT and OT Security](CSI2450%20IoT%20and%20OT%20Security)
-- [MAT3120 Machine Learning and Data Visualisation](MAT3120%20Machine%20Learning%20and%20Data%20Visualisation)
+- [CSI2450 - IoT and OT Security](CSI2450%20-%20IoT%20and%20OT%20Security)
+- [MAT3120 - Machine Learning and Data Visualisation](MAT3120%20-%20Machine%20Learning%20and%20Data%20Visualisation)
 
 ## La Trobe University
 
-- [CSE1IOO-CSE4IOO Intermediate Object-Oriented Programming](CSE1IOO-CSE4IOO%20Intermediate%20Object-Oriented%20Programming)
+- [CSE1IOO-CSE4IOO - Intermediate Object-Oriented Programming](CSE1IOO-CSE4IOO%20-%20Intermediate%20Object-Oriented%20Programming)
 - [CSE3BDC/CSE5BDC - Big Data Management on the Cloud](CSE3BDC-CSE5BDC%20-%20Big%20Data%20Management%20on%20the%20Cloud)
-- [STM1001 MAKING SENSE OF DATA](STM1001%20MAKING%20SENSE%20OF%20DATA)
+- [STM1001 - MAKING SENSE OF DATA](STM1001%20-%20MAKING%20SENSE%20OF%20DATA)
 
 ## Monash University
 
-- [FIT3176 Advanced database design](FIT3176%20Advanced%20database%20design)
-- [FIT5197 Statistical data modelling](FIT5197%20Statistical%20data%20modelling)
-- [MGB2230 Organisation Behavior](MGB2230%20Organisation%20Behavior)
-- [MGB2430 Human Resources](MGB2430%20Human%20Resources)
+- [FIT3176 - Advanced database design](FIT3176%20-%20Advanced%20database%20design)
+- [FIT5197 - Statistical data modelling](FIT5197%20-%20Statistical%20data%20modelling)
+- [MGB2230 - Organisation Behavior](MGB2230%20-%20Organisation%20Behavior)
+- [MGB2430 - Human Resources](MGB2430%20-%20Human%20Resources)
 
 ## University of Auckland
 
 - [MECHENG 710 - Advanced Industrial Automation](MECHENG%20710%20-%20Advanced%20Industrial%20Automation)
-- [MECHENG 754 industry 4.0 smart manufacturing](MECHENG%20754%20industry%204.0%20smart%20manufacturing)
+- [MECHENG 754 - industry 4.0 smart manufacturing](MECHENG%20754%20-%20industry%204.0%20smart%20manufacturing)
 
 ## University of Bristol
 
@@ -76,27 +76,27 @@
 
 ## University of Nottingham
 
-- [COMP1036 Computer Fundamentals](COMP1036%20Computer%20Fundamentals)
-- [COMP1047 Systems & Architecture](COMP1047%20Systems%20%26%20Architecture)
+- [COMP1036 - Computer Fundamentals](COMP1036%20-%20Computer%20Fundamentals)
+- [COMP1047 - Systems & Architecture](COMP1047%20-%20Systems%20%26%20Architecture)
 
 ## University of Sydney
 
 - [BUS2004 - Predictive Analytics](BUS2004%20-%20Predictive%20Analytics)
-- [BUSS6002 Data Science in Business](BUSS6002%20Data%20Science%20in%20Business)
-- [DATA2x01 Data Science, Big Data and Data Variety](DATA2x01%20Data%20Science%2C%20Big%20Data%20and%20Data%20Variety)
+- [BUSS6002 - Data Science in Business](BUSS6002%20-%20Data%20Science%20in%20Business)
+- [DATA2x01 - Data Science, Big Data and Data Variety](DATA2x01%20-%20Data%20Science%2C%20Big%20Data%20and%20Data%20Variety)
 - [DATA3404 - Scalable Data Management](DATA3404%20-%20Scalable%20Data%20Management)
-- [SOFT2412 COMP9412 Agile Software Development Practices](SOFT2412%20COMP9412%20Agile%20Software%20Development%20Practices)
+- [SOFT2412 COMP9412 - Agile Software Development Practices](SOFT2412%20COMP9412%20-%20Agile%20Software%20Development%20Practices)
 
 ## Western Sydney University
 
-- [BSBPMG505A Manage Project Quality [23137]](BSBPMG505A%20Manage%20Project%20Quality%20%5B23137%5D)
-- [CPCCBC4003A Select And Prepare A Construction Contract [23139]](CPCCBC4003A%20Select%20And%20Prepare%20A%20Construction%20Contract%20%5B23139%5D)
-- [CPCCBC4004A Identify And Produce Estimated Costs For Building And Construction Projects](CPCCBC4004A%20Identify%20And%20Produce%20Estimated%20Costs%20For%20Building%20And%20Construction%20Projects%20%5B23140%5D)
-- [CPCCBC4010B Apply Structural Principles To Residential Low-rise Constructions [23141]](CPCCBC4010B%20Apply%20Structural%20Principles%20To%20Residential%20Low-rise%20Constructions%20%5B23141%5D)
+- [BSBPMG505A - Manage Project Quality [23137]](BSBPMG505A%20-%20Manage%20Project%20Quality%20%5B23137%5D)
+- [CPCCBC4003A - Select And Prepare A Construction Contract](CPCCBC4003A%20-%20Select%20And%20Prepare%20A%20Construction%20Contract%20%5B23139%5D)
+- [CPCCBC4004A - Identify And Produce Estimated Costs For Building And Construction Projects](CPCCBC4004A%20-%20Identify%20And%20Produce%20Estimated%20Costs%20For%20Building%20And%20Construction%20Projects%20%5B23140%5D)
+- [CPCCBC4010B - Apply Structural Principles To Residential Low-rise Constructions](CPCCBC4010B%20-%20Apply%20Structural%20Principles%20To%20Residential%20Low-rise%20Constructions%20%5B23141%5D)
 
 ## Xi'an Jiaotong-Liverpool University
 
-- [CPT203 Software Engineering 1](CPT203%20Software%20Engineering%201)
+- [CPT203 - Software Engineering 1](CPT203%20-%20Software%20Engineering%201)
 
 ![image](https://github.com/RaistlinTAO/UniversityResource/assets/8352780/62f6235b-be0e-49fd-8c51-2eb039bd9d11)
 
