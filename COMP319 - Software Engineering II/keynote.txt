@@ -1,0 +1,141 @@
+JAVA Pattern总结
+
+https://www.javatpoint.com/factory-method-design-pattern
+
+重点关注一下Advantage和Usage
+
+
+class car {
+	public string releaseDate;
+	private String name;
+
+//getter
+        public String getName(){ return name; }
+//setter
+        public void setName(String value) { name = value; }
+
+        public function ___ () {}
+
+        constructor(String name)
+        {
+          name = "x01" https register
+        }
+
+        private function x() {}
+
+}
+
+
+car x = new car('ccc');
+//print (x.name);
+
+
+car 
+类 类目
+轿车 卡车 SUV pickuptruck
+
+class A implemets interface
+
+
+implement a function
+
+super class interface
+subclass
+
+interface car () { getload() }
+
+class truck implements car
+{
+   getLoad()
+   {xx xx xx}
+}
+
+class 卡车 implements 车
+{
+	private float load;
+	getLoad()
+}
+
+
+x.releaseDate
+print ( x.getName() );
+
+x.setName('GP01');
+
+
+//x.name = "ccc" 
+
+
+if ()
+switch case
+for
+
+
+class employee
+
+class schedule
+
+interface
+
+implements
+
+Design Patterns
+
+Creational Pattern 
+
+- Factory   provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created.
+
+运输 Transport interface {deliver()} Road Sea Air {deliver(){}}
+
+- Builder 分割
+- Singleton 单一instance
+
+class connection()
+
+connection db_con = new connection(); 
+//connection db_con_2 = new connection();
+//connection db_con_3 = new connection();
+db_con.query('sql1')
+db_con.query('sql2')
+instance
+
+Singleton
+class connection() {
+
+private static field _instance;
+
+public static method getInstance()
+{
+if (_instance) {
+	return _instance
+}
+else {
+return null
+}
+}
+
+}
+
+if (connection.getInstance())
+{
+   send message 
+}
+else
+{
+   reconnection
+   send
+}
+
+class static
+
+
+Structural 
+
+- Flyweight memory consumption low
+例子是 sensor hub 有点像数据库的normalisation 单一sensor 可能包含相同的command
+
+Behavioral
+
+- Memonto save and restore the previous state of an object without revealing the details of its implementation
+
+创建一个class 去记另外一个类的当前状态
