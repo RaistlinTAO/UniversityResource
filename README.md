@@ -69,6 +69,7 @@
 ## University of Liverpool
 
 - [MATH268 - Operational research probabilistic models](MATH268%20-%20Operational%20research%20probabilistic%20models)
+- [COMP319 - Software Engineering II](COMP319%20-%20Software%20Engineering%20II)
 
 ## University of Melbourne
 
