@@ -118,7 +118,6 @@ swap的代码参考教材， skip的代码如下
 https://www.programiz.com/dsa/bubble-sort
 冒泡法的优势就是代码简洁，逻辑简单，但是优化有问题，如果是反向的数组，那么难度为O(n^2)，你可以尝试实现Merge sort，中文叫做归并排序
 https://www.programiz.com/dsa/merge-sort
-如果只是这部分有问题，可以询问Wechat: Raistlin-K
 
 这两种算法你可以粗略的理解为，使用天平在5个小球中找到质量不正确的那个 你需要称几次 （考虑最差可能性）
 冒泡法相当于两两相比 （1：1）
