@@ -24,6 +24,7 @@
 ## Deakin University
 
 - [MIS770 - Foundation Skills In Data Analysis](MIS770%20-%20Foundation%20Skills%20In%20Data%20Analysis)
+- [MIS781 - Business Intelligence And Database](MIS781%20-%20Business%20Intelligence%20And%20Database)
 - [SIT104 - Introduction to Web Development](SIT104%20-%20Introduction%20to%20Web%20Development)
 - [SIT113 - Cloud Computing and Virtualisation](SIT113%20-%20Cloud%20Computing%20and%20Virtualisation)
 - [SIT151 - Game Fundamentals](SIT151%20-%20Game%20Fundamentals)
