@@ -37,6 +37,7 @@
 - [SIT740 - Research and Development in Information Technology](SIT740%20-%20Research%20and%20Development%20in%20Information%20Technology)
 - [SIT742 - Modern Data Science](SIT742%20-%20Modern%20Data%20Science)
 - [SIT764 - Project Analysis and Design](SIT764%20-%20Project%20Analysis%20and%20Design)
+- [MIS782 - Value Of Information](MIS782%20-%20Value%20Of%20Information)
 
 ## Edith Cowan University
 
