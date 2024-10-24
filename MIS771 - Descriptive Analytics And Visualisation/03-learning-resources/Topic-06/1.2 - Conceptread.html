@@ -1,0 +1,164 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <title>CloudFirst CloudDeakin Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="/shared/HTML Templates/CloudFirst/styles/cloudfirst.css">
+    <script src="/content/deakinscripts/h5pResponsive.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="/content/deakin-embedded-comments/embeddedComments.css?v=20201007">
+<script>function lti_launch( vars, target ) {
+						var query = '';
+						var new_tab = false;
+
+						for(var key in vars) {
+							if(query.length == 0) {
+								query += '?' + key + '=' + encodeURIComponent(vars[key]);
+							}
+							else {
+								query += '&' + key + '=' + encodeURIComponent(vars[key]);
+							}
+						}
+
+						var url = '/d2l/customization/pearsonlti/6605/Launch' + query;(target == '_blank') ? window.open( url, '_blank' ) : location.replace( url );}</script><script src="https://s.brightspace.com/lib/bsi/2024.6.211/unbundled/embeds.js?v=20.24.6.19120" type="module"></script><script>document.addEventListener('DOMContentLoaded', function() {
+					window.D2L.EmbedRenderer.renderEmbeds(document.body);
+				});</script><script src="https://s.brightspace.com/lib/bsi/2024.6.211/unbundled/mathjax.js?v=20.24.6.19120" type="module"></script><script>document.addEventListener('DOMContentLoaded', function() {
+					if (document.querySelector('math') || /\$\$|\\\(|\\\[|\\begin{|\\ref{|\\eqref{/.test(document.body.innerHTML)) {
+						document.querySelectorAll('mspace[linebreak="newline"]').forEach(elm => {
+							elm.setAttribute('style', 'display: block; height: 0.5rem;');
+						});
+
+						window.D2L.MathJax.loadMathJax({
+							outputScale: 1.5,
+							renderLatex: true,
+							enableMML3Support: false
+						});
+					}
+				});</script><script src="https://s.brightspace.com/lib/bsi/2024.6.211/unbundled/prism.js?v=20.24.6.19120" type="module"></script><script>document.addEventListener('DOMContentLoaded', function() {
+					document.querySelectorAll('.d2l-code').forEach(code => {
+						window.D2L.Prism.formatCodeElement(code);
+					});
+				});</script><script>document.addEventListener('DOMContentLoaded', function() {
+						if (document.documentElement.hasAttribute('lang')) return;
+						document.documentElement.setAttribute('lang', 'en-GB'); 						
+					});</script><script>document.addEventListener('DOMContentLoaded', function() {
+						if (document.head.querySelector('title')) return;
+						var handleAppendTitle = function(evt) {
+							if (!evt || !evt.data) return;
+
+							try {
+								var data = JSON.parse(evt.data);
+								if (data.handler !== 'd2l.iframe.requestPageTitle' || !data.pageTitle) return;
+
+								window.removeEventListener('message', handleAppendTitle, false);
+
+								var titleElm = document.createElement('title');
+								titleElm.textContent = data.pageTitle;
+								document.head.appendChild(titleElm);
+							} catch (e) {}	
+						};
+
+						window.addEventListener('message', handleAppendTitle, false);
+						window.parent.postMessage(JSON.stringify({ handler: 'd2l.iframe.requestPageTitle' }), '*');
+					});</script><script>window.addEventListener('message', function(event) { 
+					if( !event.data ) {
+						return;
+					}
+
+					var params;
+					try {
+						params = JSON.parse( event.data );
+					}
+					catch {
+						return;
+					}
+					if( !params.subject || params.subject !== 'lti.frameResize' ) {
+						return;
+					}
+
+					const MAX_FRAME_HEIGHT = 10000
+					if( !params.height || params.height < 1 || params.height > MAX_FRAME_HEIGHT ) {
+						console.warn( 'Invalid height value received, aborting' );
+						return;
+					}
+					var el = document.getElementsByTagName( 'iframe' );
+					for ( var i=0; i < el.length; i++ ) {
+						if( el[i].contentWindow === event.source ) {
+							el[i].style.height = params.height + 'px';
+							el[i].style.width = '100%';
+							console.info( 'Setting iFrame height to ' + params.height );
+							console.info( 'Setting iFrame width to 100%' );
+						}
+					}
+				});</script></head><body><h3>teal</h3>
+<div class="cf_instructions">
+<div class="non-editable" contenteditable="false">
+<div style="font-size: 12.6px; background: aliceblue; padding: .4rem 1rem; border: 1px solid; border-radius: 10px;">
+<p>By changing the Heading 3 above with the following&nbsp;<b style="color: #006d88;">teal</b>, <b style="color: #0c8573;">turquoise</b>, <b style="color: #f76919;">orange</b> or <b style="color: #d14a95;">pink</b> you can change the colour theme of your CloudFirst CloudDeakin template page.</p>
+<p>When this page is published the Heading 3 above will be removed, but it will still be here in edit mode if you wish to change the colour theme.</p>
+<p><b><span style="text-decoration: underline;">Note</span>: There is no need to delete this instruction or the Heading 3 above - they are only visible in edit mode and will be removed when your page is published.</b></p>
+<p>See the <a href="/content/enforced/950885-cloudfirst-dev/_do-not-delete/Template-Guidance-Notes/CF-Template-Advance.html" target="_blank" rel="noopener">CloudFirst html template - additional features</a>. (right-click and open in a new tab)</p>
+</div>
+<hr style="width: 100%; height: auto; color: #ffffff; border: 1px inset #cccccc;"></div>
+</div>
+<p><img src="../Topic-05/01-images/MIS771%20Banner%2014.png" alt="" title="" data-d2l-editor-default-img-style="true" style="max-width: 100%;"></p>
+<h2>Key concepts</h2>
+<p>The multiple regression model describes the relationship between the dependent variable (Y), a set of independent variables (x’s) and an error term (e). To build a multiple regression model the basic three aspects are important.</p>
+<ol>
+<li>Model Specification: Decide what you want to do and select the dependent variable, determine the potential independent variables for your model, gather sample data (observations) for all variables.</li>
+<li>Model Building: The process of constructing a mathematical equation that explains the relationship between independent variables and the dependent variable. The model building process involved the following steps:
+<ul>
+<li>identification of potential independent variables (using scatter diagram and correlation matrix), &nbsp;</li>
+<li>creation of regression model with chosen independent variables,</li>
+<li>checking for the significance of the model and for each variable,</li>
+<li>exclusion/inclusion of independent variable,</li>
+<li>residual analysis and obtaining the final model.</li>
+</ul>
+</li>
+<li>Model Diagnosis: Under model diagnosis, the following questions need to investigate:
+<ul>
+<li>Is the overall model significant?</li>
+<li>Are the individual variables significant?</li>
+<li>Is the standard deviation of the model error too large to provide meaningful results?</li>
+<li>Have the regression analysis assumptions been satisfied?</li>
+</ul>
+</li>
+</ol>
+<h3>Watch: Multiple Regression Analysis, Model Building and Advanced Topics [00:18:34]</h3>
+<ul></ul>
+<p><iframe src="https://deakin.au.panopto.com/Panopto/Pages/Embed.aspx?id=0f2a4fc5-bb5f-4144-a38a-afe7011c5bd2&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=true&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player"></iframe></p>
+<h3>Callout</h3>
+<h3>Learning Activity 5.1</h3>
+<ul>
+<li>Complete the following readings and attempt the quiz below to consolidate your understanding of the topic content.</li>
+<li>Contribute to the discussion below.</li>
+</ul>
+<hr style="width: 100%; height: auto; color: #ffffff; border: 1px inset #cccccc;">
+<h3>Box model</h3>
+<h4>Book Chapter</h4>
+<h3>Floatleft</h3>
+<ul>
+<li>Chapters (13)&nbsp; '<a href="https://ebookcentral.proquest.com/lib/deakin/reader.action?docID=5516542&amp;ppg=523" target="_blank" rel="noopener">Introduction to Multiple Regression</a>' and Chapter (16)&nbsp;<a href="https://ebookcentral.proquest.com/lib/deakin/reader.action?docID=5516542&amp;ppg=670" target="_blank" rel="noopener">Multiple Regression and Model Building</a>&nbsp;in Mark Berenson &amp; David Levine (2018) <em>Basic business statistics: concepts and applications,&nbsp;</em>Pearson.&nbsp;</li>
+<li><a href="../../Multiple%20Regression.pdf" target="_blank" rel="noopener">Multiple Regression Study Guide</a></li>
+</ul>
+<hr style="width: 100%; height: auto; color: #ffffff; border: 1px inset #cccccc;">
+<p style="text-align: center;"><iframe src="/d2l/common/dialogs/quickLink/quickLink.d2l?ou=1424175&amp;type=lti&amp;rCode=DeakinUniversity-3497583" title="MIS771 M2T1 test your knowledge" allowfullscreen="allowfullscreen" allow="geolocation *; microphone *; camera *; midi *; encrypted-media *" height="600" width="779" frameborder="0" style="max-width: 779px; width: 100%; height: 370px;" class="kalmod-7529940-5"></iframe></p>
+<div><iframe src="/content/deakin-embedded-comments/embedded-comments-loader.html?v=20201006" style="position: absolute; left: -9999px; top: -9999px; width: 0px; height: 0px;"></iframe> <!--FORUMVARIABLESTART-->
+<div style="display: none;" data-forumname="null"></div>
+<!--FORUMVARIABLEEND--></div>
+<p>
+<script type="text/javascript" src="https://s.brightspace.com/lib/jquery/2.2.4/jquery.min.js"></script>
+<script src="/shared/HTML Templates/CloudFirst/scripts/cloudfirst-v1.js"></script>
+<script type="text/javascript" src="/content/deakinscripts/moment/moment.2.21.js"></script>
+<script>
+	// Nav Button
+	$("body").append('<div style="padding-bottom: 50px; clear: both;"><hr style="width: 100%; height: auto; color: #ffffff; border: 1px inset #cccccc;" /><p style="padding-bottom:5px;"></p><a title="Previous" class="navrep-button" style="float: left;" href="#" target="_parent"> <i class="fa fa-chevron-left"></i> Previous </a> <a title="Next" class="navrep-button" style="float: right;"  href="#" target="_parent"> Next <i class="fa fa-chevron-right"></i> </a></div>');
+	// Find Parent frame
+	var backLink = $('body .d2l-iterator-button-prev', window.parent.parent.document).attr('href');
+	var nextLink = $('body .d2l-iterator-button-next', window.parent.parent.document).attr('href');
+	// console.log('backLink > ', backLink);
+	// console.log('nextLink > ', nextLink);
+	// Apply to each button
+	$('.navrep-button:contains("Previous")').attr('href', backLink);
+	$('.navrep-button:contains("Next")').attr('href', nextLink);
+</script>
+<script type="text/javascript" src="/content/deakin-embedded-comments/embeddedComments.js?v=20201007"></script>
+</p></body></html>

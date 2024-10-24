@@ -1,0 +1,141 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <title>CloudFirst CloudDeakin Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="/shared/HTML Templates/CloudFirst/styles/cloudfirst.css">
+    <script src="/content/deakinscripts/h5pResponsive.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="/content/deakin-embedded-comments/embeddedComments.css?v=20201007">
+<script>function lti_launch( vars, target ) {
+						var query = '';
+						var new_tab = false;
+
+						for(var key in vars) {
+							if(query.length == 0) {
+								query += '?' + key + '=' + encodeURIComponent(vars[key]);
+							}
+							else {
+								query += '&' + key + '=' + encodeURIComponent(vars[key]);
+							}
+						}
+
+						var url = '/d2l/customization/pearsonlti/6605/Launch' + query;(target == '_blank') ? window.open( url, '_blank' ) : location.replace( url );}</script><script src="https://s.brightspace.com/lib/bsi/2024.6.211/unbundled/embeds.js?v=20.24.6.19120" type="module"></script><script>document.addEventListener('DOMContentLoaded', function() {
+					window.D2L.EmbedRenderer.renderEmbeds(document.body);
+				});</script><script src="https://s.brightspace.com/lib/bsi/2024.6.211/unbundled/mathjax.js?v=20.24.6.19120" type="module"></script><script>document.addEventListener('DOMContentLoaded', function() {
+					if (document.querySelector('math') || /\$\$|\\\(|\\\[|\\begin{|\\ref{|\\eqref{/.test(document.body.innerHTML)) {
+						document.querySelectorAll('mspace[linebreak="newline"]').forEach(elm => {
+							elm.setAttribute('style', 'display: block; height: 0.5rem;');
+						});
+
+						window.D2L.MathJax.loadMathJax({
+							outputScale: 1.5,
+							renderLatex: true,
+							enableMML3Support: false
+						});
+					}
+				});</script><script src="https://s.brightspace.com/lib/bsi/2024.6.211/unbundled/prism.js?v=20.24.6.19120" type="module"></script><script>document.addEventListener('DOMContentLoaded', function() {
+					document.querySelectorAll('.d2l-code').forEach(code => {
+						window.D2L.Prism.formatCodeElement(code);
+					});
+				});</script><script>document.addEventListener('DOMContentLoaded', function() {
+						if (document.documentElement.hasAttribute('lang')) return;
+						document.documentElement.setAttribute('lang', 'en-GB'); 						
+					});</script><script>document.addEventListener('DOMContentLoaded', function() {
+						if (document.head.querySelector('title')) return;
+						var handleAppendTitle = function(evt) {
+							if (!evt || !evt.data) return;
+
+							try {
+								var data = JSON.parse(evt.data);
+								if (data.handler !== 'd2l.iframe.requestPageTitle' || !data.pageTitle) return;
+
+								window.removeEventListener('message', handleAppendTitle, false);
+
+								var titleElm = document.createElement('title');
+								titleElm.textContent = data.pageTitle;
+								document.head.appendChild(titleElm);
+							} catch (e) {}	
+						};
+
+						window.addEventListener('message', handleAppendTitle, false);
+						window.parent.postMessage(JSON.stringify({ handler: 'd2l.iframe.requestPageTitle' }), '*');
+					});</script><script>window.addEventListener('message', function(event) { 
+					if( !event.data ) {
+						return;
+					}
+
+					var params;
+					try {
+						params = JSON.parse( event.data );
+					}
+					catch {
+						return;
+					}
+					if( !params.subject || params.subject !== 'lti.frameResize' ) {
+						return;
+					}
+
+					const MAX_FRAME_HEIGHT = 10000
+					if( !params.height || params.height < 1 || params.height > MAX_FRAME_HEIGHT ) {
+						console.warn( 'Invalid height value received, aborting' );
+						return;
+					}
+					var el = document.getElementsByTagName( 'iframe' );
+					for ( var i=0; i < el.length; i++ ) {
+						if( el[i].contentWindow === event.source ) {
+							el[i].style.height = params.height + 'px';
+							el[i].style.width = '100%';
+							console.info( 'Setting iFrame height to ' + params.height );
+							console.info( 'Setting iFrame width to 100%' );
+						}
+					}
+				});</script></head><body><h3>teal</h3>
+<div class="cf_instructions">
+<div class="non-editable" contenteditable="false">
+<div style="font-size: 12.6px; background: aliceblue; padding: .4rem 1rem; border: 1px solid; border-radius: 10px;">
+<p>By changing the Heading 3 above with the following&nbsp;<b style="color: #006d88;">teal</b>, <b style="color: #0c8573;">turquoise</b>, <b style="color: #f76919;">orange</b> or <b style="color: #d14a95;">pink</b> you can change the colour theme of your CloudFirst CloudDeakin template page.</p>
+<p>When this page is published the Heading 3 above will be removed, but it will still be here in edit mode if you wish to change the colour theme.</p>
+<p><b><span style="text-decoration: underline;">Note</span>: There is no need to delete this instruction or the Heading 3 above - they are only visible in edit mode and will be removed when your page is published.</b></p>
+<p>See the <a href="/content/enforced/950885-cloudfirst-dev/_do-not-delete/Template-Guidance-Notes/CF-Template-Advance.html" target="_blank" rel="noopener">CloudFirst html template - additional features</a>. (right-click and open in a new tab)</p>
+</div>
+<hr style="width: 100%; height: auto; color: #ffffff; border: 1px inset #cccccc;"></div>
+</div>
+<p><img src="01-Images/MIS771%20Banner%2031.png" alt="" title="" data-d2l-editor-default-img-style="true" style="max-width: 100%;"></p>
+<h3>Video: Interpretation [00:14:11]</h3>
+<p><iframe src="https://deakin.au.panopto.com/Panopto/Pages/Embed.aspx?id=cee384b4-4917-479d-81e8-afe7011c7968&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=true&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player"></iframe></p>
+<h3>Callout</h3>
+<h3>Learning Activity 4.1</h3>
+<p>Your task is to watch the video above on how to approach interpreting the data analysis output and then attempt the quizzes below to consolidate your understanding of the topic content. For some of the quiz questions, you may need to use software (Excel) or a calculator to derive the solution.</p>
+<p><span style="color: #363635; font-family: 'Open Sans', sans-serif; font-size: 1.5em; font-weight: 600;"></span></p>
+<hr style="width: 100%; height: auto; color: #ffffff; border: 1px inset #cccccc;">
+<p style="text-align: center;"><iframe src="/d2l/common/dialogs/quickLink/quickLink.d2l?ou=1424175&amp;type=lti&amp;rCode=DeakinUniversity-3497573" title="MIS771 Test your knowledge case studies" allowfullscreen="allowfullscreen" allow="geolocation *; microphone *; camera *; midi *; encrypted-media *" height="600" width="779" frameborder="0" style="max-width: 779px; width: 100%; height: 370px;" class="kalmod-7529947-2"></iframe></p>
+<p style="text-align: center;"></p>
+<h3>Callout</h3>
+<h3>Learning Activity 4.2</h3>
+<p>Now attempt questions at the end of Chapters 11-3 and Chapter 15. For some of the questions, you may need to use software (Excel) or a calculator to derive the solution. The corresponding data files and the solutions for the questions are below.</p>
+<p><a href="../../CH11%20Excel%20workbooks1.zip" target="_blank" rel="noopener">Chapter 11 Data files</a><a href="../../CH15%20Excel%20workbooks.zip" target="_blank" rel="noopener">Chapter 15 Data files</a></p>
+<p><a href="../../BERE_BBS_5E_SM_C11-3.pdf" target="_blank" rel="noopener">Chapter 11-3 Solutions</a> <a href="../../BERE_BBS_5E_SM_C15.pdf" target="_blank" rel="noopener">Chapter 15 Solutions</a></p>
+<p></p>
+<hr style="width: 100%; height: auto; color: rgb(255, 255, 255); border: 1px inset rgb(204, 204, 204);">
+<p style="text-align: center;"></p>
+<p style="text-align: center;"></p>
+<div><iframe src="/content/deakin-embedded-comments/embedded-comments-loader.html?v=20201006" style="position: absolute; left: -9999px; top: -9999px; width: 0px; height: 0px;"></iframe> <!--FORUMVARIABLESTART-->
+<div style="display: none;" data-forumname="null"></div>
+<!--FORUMVARIABLEEND--></div>
+<p>
+<script type="text/javascript" src="https://s.brightspace.com/lib/jquery/2.2.4/jquery.min.js"></script>
+<script src="/shared/HTML Templates/CloudFirst/scripts/cloudfirst-v1.js"></script>
+<script type="text/javascript" src="/content/deakinscripts/moment/moment.2.21.js"></script>
+<script>
+	// Nav Button
+	$("body").append('<div style="padding-bottom: 50px; clear: both;"><hr style="width: 100%; height: auto; color: #ffffff; border: 1px inset #cccccc;" /><p style="padding-bottom:5px;"></p><a title="Previous" class="navrep-button" style="float: left;" href="#" target="_parent"> <i class="fa fa-chevron-left"></i> Previous </a> <a title="Next" class="navrep-button" style="float: right;"  href="#" target="_parent"> Next <i class="fa fa-chevron-right"></i> </a></div>');
+	// Find Parent frame
+	var backLink = $('body .d2l-iterator-button-prev', window.parent.parent.document).attr('href');
+	var nextLink = $('body .d2l-iterator-button-next', window.parent.parent.document).attr('href');
+	// console.log('backLink > ', backLink);
+	// console.log('nextLink > ', nextLink);
+	// Apply to each button
+	$('.navrep-button:contains("Previous")').attr('href', backLink);
+	$('.navrep-button:contains("Next")').attr('href', nextLink);
+</script>
+<script type="text/javascript" src="/content/deakin-embedded-comments/embeddedComments.js?v=20201007"></script>
+</p></body></html>
