@@ -23,6 +23,7 @@
 
 ## Deakin University
 
+- [MIS710 - Machine Learning In Business](MIS710%20-%20Machine%20Learning%20In%20Business)
 - [MIS770 - Foundation Skills In Data Analysis](MIS770%20-%20Foundation%20Skills%20In%20Data%20Analysis)
 - [SIT104 - Introduction to Web Development](SIT104%20-%20Introduction%20to%20Web%20Development)
 - [SIT113 - Cloud Computing and Virtualisation](SIT113%20-%20Cloud%20Computing%20and%20Virtualisation)

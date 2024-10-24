@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><head></head><body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    
+    
+    
+    
+
+
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput">
+<h3>1. Regression Model Evaluation Metrics:<a rel="noopener" class="anchor-link" href="#1.-Regression-Model-Evaluation-Metrics:">&#182;</a></h3><h4>a. Mean Absolute Error (MAE): measures the average magnitude of errors between predicted and actual observations.<a rel="noopener" class="anchor-link" href="#a.-Mean-Absolute-Error-(MAE):-measures-the-average-magnitude-of-errors-between-predicted-and-actual-observations.">&#182;</a></h4><ul>
+<li><strong>Formula</strong>: $$ MAE = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i| $$
+<strong>Where</strong>:<ul>
+<li>$y_i$: Actual value of the $i^{th}$ observation.</li>
+<li>$\hat{y}_i$: Predicted value of the $i^{th}$ observation.</li>
+<li>$n$: Total number of observations.</li>
+</ul>
+</li>
+<li><strong>Pros</strong>:<ul>
+<li>Easy to understand and interpret.</li>
+<li>Provides a linear penalty for each unit of difference.</li>
+</ul>
+</li>
+<li><strong>Cons</strong>:<ul>
+<li>Doesn&#39;t emphasize large errors.</li>
+</ul>
+</li>
+</ul>
+<h4>b. Mean Squared Error (MSE): provides the average of the squared differences between predicted and actual values.<a rel="noopener" class="anchor-link" href="#b.-Mean-Squared-Error-(MSE):-provides-the-average-of-the-squared-differences-between-predicted-and-actual-values.">&#182;</a></h4><ul>
+<li><strong>Formula</strong>: $$ MSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2 $$
+<strong>Where</strong>:<ul>
+<li>$y_i$: Actual value of the $i^{th}$ observation.</li>
+<li>$\hat{y}_i$: Predicted value of the $i^{th}$ observation.</li>
+<li>$n$: Total number of observations.</li>
+</ul>
+</li>
+<li><strong>Pros</strong>:<ul>
+<li>Emphasizes larger errors over smaller ones.</li>
+<li>Commonly used and widely accepted.</li>
+</ul>
+</li>
+<li><strong>Cons</strong>:<ul>
+<li>Can be sensitive to outliers.</li>
+<li>Not in the same unit as the original data.</li>
+</ul>
+</li>
+</ul>
+<h4>c. Root Mean Squared Error (RMSE):  is the square root of the MSE.<a rel="noopener" class="anchor-link" href="#c.-Root-Mean-Squared-Error-(RMSE):--is-the-square-root-of-the-MSE.">&#182;</a></h4><ul>
+<li><strong>Formula</strong>: $$ RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2} $$
+<strong>Where</strong>:<ul>
+<li>$y_i$: Actual value of the $i^{th}$ observation.</li>
+<li>$\hat{y}_i$: Predicted value of the $i^{th}$ observation.</li>
+<li>$n$: Total number of observations.</li>
+</ul>
+</li>
+<li><strong>Pros</strong>:<ul>
+<li>Emphasizes larger errors.</li>
+<li>In the same unit as the original data.</li>
+</ul>
+</li>
+<li><strong>Cons</strong>:<ul>
+<li>Still sensitive to outliers.</li>
+</ul>
+</li>
+</ul>
+<h4>d. R-squared (Coefficient of Determination): measures the proportion of variance in the dependent variable that is predictable from the independent variables.<a rel="noopener" class="anchor-link" href="#d.-R-squared-(Coefficient-of-Determination):-measures-the-proportion-of-variance-in-the-dependent-variable-that-is-predictable-from-the-independent-variables.">&#182;</a></h4><ul>
+<li><strong>Formula</strong>: $$ R^2 = 1 - \frac{MSE_{predicted}}{MSE_{mean}} $$
+<strong>Where</strong>:<ul>
+<li>$MSE_{\text{predicted}}$: Mean squared error of the model&#39;s predictions.</li>
+<li>$MSE_{\text{mean}}$: Mean squared error when always predicting the average value of the target variable.</li>
+</ul>
+</li>
+<li><strong>Pros</strong>:<ul>
+<li>Provides a proportion of variance explained by the model.</li>
+<li>Values between 0 and 1 make it interpretable.</li>
+</ul>
+</li>
+<li><strong>Cons</strong>:<ul>
+<li>Doesn&#39;t necessarily indicate a model&#39;s ability to predict new data.</li>
+<li>Can be artificially high if the model is overfitting.</li>
+</ul>
+</li>
+</ul>
+<h4>e. Adjusted R-squared: takes into account the number of predictors in the model. It adjusts the $R^2$ value based on the number of predictors, preventing artificial inflation when irrelevant predictors are added.<a rel="noopener" class="anchor-link" href="#e.-Adjusted-R-squared:-takes-into-account-the-number-of-predictors-in-the-model.-It-adjusts-the-$R%5E2$-value-based-on-the-number-of-predictors,-preventing-artificial-inflation-when-irrelevant-predictors-are-added.">&#182;</a></h4><ul>
+<li><p><strong>Formula</strong>:
+$$ \text{Adjusted } R^2 = 1 - \left( \frac{1 - R^2}{n - k - 1} \right)  $$</p>
+<p><strong>Where</strong>:</p>
+<ul>
+<li>$R^2$: Coefficient of determination.</li>
+<li>$n$: Total number of observations.</li>
+<li>$k$: Number of predictors (independent variables).  </li>
+</ul>
+</li>
+<li><strong>Purpose</strong>: Penalizes the addition of unnecessary predictors, helping to prevent overfitting. Always less than or equal to ( R^2 ). Useful for comparing models with different numbers of predictors.</li>
+<li><strong>Pros</strong>:<ul>
+<li>Penalizes the addition of irrelevant predictors.</li>
+<li>More robust than R-squared for model selection.</li>
+</ul>
+</li>
+<li><strong>Cons</strong>:<ul>
+<li>Still doesn&#39;t give a full picture of a model&#39;s predictive capability.
+The adjusted ( R^2 ) is a valuable metric in regression analysis, especially when comparing models with different numbers of predictors. Here are its pros and cons:</li>
+</ul>
+</li>
+</ul>
+<h3>2. Residual Analysis:<a rel="noopener" class="anchor-link" href="#2.-Residual-Analysis:">&#182;</a></h3><p>Residuals are the differences between the observed values and the values predicted by the model. Analyzing residuals can provide insights into the model&#39;s performance and assumptions.</p>
+<h4>a. <strong>Pros</strong>:<a rel="noopener" class="anchor-link" href="#a.-Pros:">&#182;</a></h4><ul>
+<li><strong>Homoscedasticity Check</strong>: If residuals are evenly spread across all levels of the independent variables, it suggests constant variance (homoscedasticity), which is a key assumption in many regression models.</li>
+<li><strong>Linearity Check</strong>: If residuals show no patterns when plotted against predicted values or any independent variable, it suggests the relationship is linear.</li>
+<li><strong>Normality Check</strong>: If the residuals are normally distributed (often checked using a histogram or Q-Q plot), it supports the assumption of normality in many regression techniques.</li>
+</ul>
+<h4>b. <strong>Cons</strong>:<a rel="noopener" class="anchor-link" href="#b.-Cons:">&#182;</a></h4><ul>
+<li><strong>Subjectivity</strong>: Interpretation of residual plots can sometimes be subjective. What looks like a pattern to one person might not to another.</li>
+<li><strong>Doesn&#39;t Capture Everything</strong>: While residuals can help diagnose certain issues, they might not capture all problems, especially if multiple assumptions are violated simultaneously.</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+<script type="module" src="https://s.brightspace.com/lib/bsi/20.24.2-171/unbundled/mathjax.js"></script><script type="text/javascript">document.addEventListener('DOMContentLoaded', function() {
+					if (document.querySelector('math') || /\$\$|\\\(|\\\[|\\begin{|\\ref{|\\eqref{/.test(document.body.innerHTML)) {
+						document.querySelectorAll('mspace[linebreak="newline"]').forEach(elm => {
+							elm.setAttribute('style', 'display: block; height: 0.5rem;');
+						});
+
+						window.D2L.MathJax.loadMathJax({
+							'outputScale': 1.5,
+							'renderLatex': true
+						});
+					}
+				});</script><script type="module" src="https://s.brightspace.com/lib/bsi/20.24.2-171/unbundled/prism.js"></script><script type="text/javascript">document.addEventListener('DOMContentLoaded', function() {
+					document.querySelectorAll('.d2l-code').forEach(code => {
+						window.D2L.Prism.formatCodeElement(code);
+					});
+				});</script></body></html>
