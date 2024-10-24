@@ -24,6 +24,7 @@
 ## Deakin University
 
 - [MIS710 - Machine Learning In Business](MIS710%20-%20Machine%20Learning%20In%20Business)
+- [MIS761 - Cyber Security Strategies](MIS761%20-%20Cyber%20Security%20Strategies)
 - [MIS770 - Foundation Skills In Data Analysis](MIS770%20-%20Foundation%20Skills%20In%20Data%20Analysis)
 - [MIS781 - Business Intelligence And Database](MIS781%20-%20Business%20Intelligence%20And%20Database)
 - [SIT104 - Introduction to Web Development](SIT104%20-%20Introduction%20to%20Web%20Development)
