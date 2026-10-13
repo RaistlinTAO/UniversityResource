@@ -109,6 +109,7 @@
 ## Victoria University
 
 - [NAD1001 - Introduction to Architectural Design](NAD1001%20-%20Introduction%20to%20Architectural%20Design)
+- [NBD1100 - Built Environment Communication and Skills](NBD1100%20-%20Built%20Environment%20Communication%20and%20Skills)
 
 ## Western Sydney University
 
