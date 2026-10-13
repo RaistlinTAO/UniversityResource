@@ -106,6 +106,10 @@
 - [DATA3404 - Scalable Data Management](DATA3404%20-%20Scalable%20Data%20Management)
 - [SOFT2412 COMP9412 - Agile Software Development Practices](SOFT2412%20COMP9412%20-%20Agile%20Software%20Development%20Practices)
 
+## Victoria University
+
+- [NAD1001 - Introduction to Architectural Design](NAD1001%20-%20Introduction%20to%20Architectural%20Design)
+
 ## Western Sydney University
 
 - [BSBPMG505A - Manage Project Quality [23137]](BSBPMG505A%20-%20Manage%20Project%20Quality%20%5B23137%5D)
